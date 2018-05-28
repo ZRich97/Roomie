@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		078FDE2C0F458552342E4E85 /* Pods_Roomie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8162BF2FBEC9F9B6977874B8 /* Pods_Roomie.framework */; };
+		14AFC799CDD74F1E6F3F9B6C /* Pods_RoomieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1072E584047DFD3F7AC1567E /* Pods_RoomieUITests.framework */; };
+		3BA8EBCF3A259EAE9C5A1EF3 /* Pods_RoomieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2538F5E33989B2BC57DD6A25 /* Pods_RoomieTests.framework */; };
 		84E66D3120BCC49C002F7999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D3020BCC49C002F7999 /* AppDelegate.swift */; };
 		84E66D3320BCC49C002F7999 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D3220BCC49C002F7999 /* ViewController.swift */; };
 		84E66D3620BCC49C002F7999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D3420BCC49C002F7999 /* Main.storyboard */; };
@@ -14,6 +17,7 @@
 		84E66D3B20BCC49F002F7999 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D3920BCC49F002F7999 /* LaunchScreen.storyboard */; };
 		84E66D4620BCC49F002F7999 /* RoomieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D4520BCC49F002F7999 /* RoomieTests.swift */; };
 		84E66D5120BCC49F002F7999 /* RoomieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D5020BCC49F002F7999 /* RoomieUITests.swift */; };
+		84E66D5F20BCC7D8002F7999 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D5E20BCC7D7002F7999 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E123A6451C445B8256D54A3 /* Pods-Roomie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roomie/Pods-Roomie.debug.xcconfig"; sourceTree = "<group>"; };
+		1072E584047DFD3F7AC1567E /* Pods_RoomieUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomieUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2538F5E33989B2BC57DD6A25 /* Pods_RoomieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26FEDEBBDDC7538AA6A2D7B6 /* Pods-RoomieUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieUITests/Pods-RoomieUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2F227326E1E0F44D57469E7A /* Pods-RoomieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieTests/Pods-RoomieTests.debug.xcconfig"; sourceTree = "<group>"; };
+		61A134DEE5D287AA9FCCE442 /* Pods-Roomie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roomie/Pods-Roomie.release.xcconfig"; sourceTree = "<group>"; };
+		8162BF2FBEC9F9B6977874B8 /* Pods_Roomie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roomie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E66D2D20BCC49C002F7999 /* Roomie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E66D3020BCC49C002F7999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E66D3220BCC49C002F7999 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +58,9 @@
 		84E66D4C20BCC49F002F7999 /* RoomieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoomieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E66D5020BCC49F002F7999 /* RoomieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomieUITests.swift; sourceTree = "<group>"; };
 		84E66D5220BCC49F002F7999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84E66D5E20BCC7D7002F7999 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9A18CF932D0C9BB69A2C8ACE /* Pods-RoomieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieTests/Pods-RoomieTests.release.xcconfig"; sourceTree = "<group>"; };
+		F970FD9DFAEE4214BB8C8E95 /* Pods-RoomieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieUITests/Pods-RoomieUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078FDE2C0F458552342E4E85 /* Pods_Roomie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BA8EBCF3A259EAE9C5A1EF3 /* Pods_RoomieTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +84,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14AFC799CDD74F1E6F3F9B6C /* Pods_RoomieUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C4EBEC49DCA63A1EECDD1CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E123A6451C445B8256D54A3 /* Pods-Roomie.debug.xcconfig */,
+				61A134DEE5D287AA9FCCE442 /* Pods-Roomie.release.xcconfig */,
+				2F227326E1E0F44D57469E7A /* Pods-RoomieTests.debug.xcconfig */,
+				9A18CF932D0C9BB69A2C8ACE /* Pods-RoomieTests.release.xcconfig */,
+				26FEDEBBDDC7538AA6A2D7B6 /* Pods-RoomieUITests.debug.xcconfig */,
+				F970FD9DFAEE4214BB8C8E95 /* Pods-RoomieUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		84E66D2420BCC49C002F7999 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +111,8 @@
 				84E66D4420BCC49F002F7999 /* RoomieTests */,
 				84E66D4F20BCC49F002F7999 /* RoomieUITests */,
 				84E66D2E20BCC49C002F7999 /* Products */,
+				2C4EBEC49DCA63A1EECDD1CA /* Pods */,
+				E72DC06D79B79B3BC963A81C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +135,7 @@
 				84E66D3720BCC49E002F7999 /* Assets.xcassets */,
 				84E66D3920BCC49F002F7999 /* LaunchScreen.storyboard */,
 				84E66D3C20BCC49F002F7999 /* Info.plist */,
+				84E66D5E20BCC7D7002F7999 /* GoogleService-Info.plist */,
 			);
 			path = Roomie;
 			sourceTree = "<group>";
@@ -125,6 +158,16 @@
 			path = RoomieUITests;
 			sourceTree = "<group>";
 		};
+		E72DC06D79B79B3BC963A81C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8162BF2FBEC9F9B6977874B8 /* Pods_Roomie.framework */,
+				2538F5E33989B2BC57DD6A25 /* Pods_RoomieTests.framework */,
+				1072E584047DFD3F7AC1567E /* Pods_RoomieUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84E66D5520BCC49F002F7999 /* Build configuration list for PBXNativeTarget "Roomie" */;
 			buildPhases = (
+				CAF4C649EA9C5A19EB9F88A3 /* [CP] Check Pods Manifest.lock */,
 				84E66D2920BCC49C002F7999 /* Sources */,
 				84E66D2A20BCC49C002F7999 /* Frameworks */,
 				84E66D2B20BCC49C002F7999 /* Resources */,
+				A486A4801D5C6D42CFE30AF1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84E66D5820BCC49F002F7999 /* Build configuration list for PBXNativeTarget "RoomieTests" */;
 			buildPhases = (
+				9087AFB0DC0702B2824D93AE /* [CP] Check Pods Manifest.lock */,
 				84E66D3D20BCC49F002F7999 /* Sources */,
 				84E66D3E20BCC49F002F7999 /* Frameworks */,
 				84E66D3F20BCC49F002F7999 /* Resources */,
@@ -167,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84E66D5B20BCC49F002F7999 /* Build configuration list for PBXNativeTarget "RoomieUITests" */;
 			buildPhases = (
+				B4E0F8706B629556C04F8A3E /* [CP] Check Pods Manifest.lock */,
 				84E66D4820BCC49F002F7999 /* Sources */,
 				84E66D4920BCC49F002F7999 /* Frameworks */,
 				84E66D4A20BCC49F002F7999 /* Resources */,
@@ -230,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E66D3B20BCC49F002F7999 /* LaunchScreen.storyboard in Resources */,
+				84E66D5F20BCC7D8002F7999 /* GoogleService-Info.plist in Resources */,
 				84E66D3820BCC49E002F7999 /* Assets.xcassets in Resources */,
 				84E66D3620BCC49C002F7999 /* Main.storyboard in Resources */,
 			);
@@ -250,6 +298,83 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9087AFB0DC0702B2824D93AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RoomieTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A486A4801D5C6D42CFE30AF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Roomie/Pods-Roomie-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Roomie/Pods-Roomie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4E0F8706B629556C04F8A3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RoomieUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAF4C649EA9C5A19EB9F88A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Roomie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84E66D2920BCC49C002F7999 /* Sources */ = {
@@ -428,14 +553,12 @@
 		};
 		84E66D5620BCC49F002F7999 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E123A6451C445B8256D54A3 /* Pods-Roomie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Roomie/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.Roomie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -445,14 +568,12 @@
 		};
 		84E66D5720BCC49F002F7999 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61A134DEE5D287AA9FCCE442 /* Pods-Roomie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Roomie/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.Roomie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -462,16 +583,13 @@
 		};
 		84E66D5920BCC49F002F7999 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F227326E1E0F44D57469E7A /* Pods-RoomieTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -482,16 +600,13 @@
 		};
 		84E66D5A20BCC49F002F7999 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A18CF932D0C9BB69A2C8ACE /* Pods-RoomieTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -502,15 +617,12 @@
 		};
 		84E66D5C20BCC49F002F7999 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26FEDEBBDDC7538AA6A2D7B6 /* Pods-RoomieUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -521,15 +633,12 @@
 		};
 		84E66D5D20BCC49F002F7999 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F970FD9DFAEE4214BB8C8E95 /* Pods-RoomieUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

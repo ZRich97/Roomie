@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         -> Bool {
             // Use Firebase library to configure APIs
             FirebaseApp.configure()
-            print("APPDELEGATE")
+            print("AppDelegate::application")
             GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
             GIDSignIn.sharedInstance().delegate = self
             
@@ -34,27 +34,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
         -> Bool {
-            print("APPDELEGATE HANDLER")
+            print("AppDelegate::application>9.0")
             return GIDSignIn.sharedInstance().handle(url,
                                                      sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                      annotation: [:])
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        print("APPDELEGATE HANDLER")
+        print("AppDelegate::application<9.0")
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: sourceApplication,
                                                  annotation: annotation)
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        // ...
+        print("AppDelegate::sign-in")
         if let error = error {
             print("ERROR: \(error)")
             return
         }
-        
-        print("SIGNING IN APPDELEG")
         
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
@@ -71,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        print("SIGNING OUT")
+        print("AppDelegate::sign-out")
         // Perform any operations when the user disconnects from app here.
         // ...
     }

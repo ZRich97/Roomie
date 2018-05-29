@@ -9,6 +9,7 @@ target 'Roomie' do
   # Pods for Roomie
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
   pod 'GoogleSignIn'
   pod 'JTAppleCalendar', '~> 7.0'
 

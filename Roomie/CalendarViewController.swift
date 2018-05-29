@@ -9,11 +9,11 @@
 import UIKit
 import JTAppleCalendar
 import EventKit
+import Firebase
+import GoogleSignIn
 
 class CalendarViewController: UIViewController {
-    
-    let formatter = DateFormatter()
-
+   
     @IBOutlet weak var calendar: JTAppleCalendarView!
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var monthLabel: UILabel!
@@ -22,6 +22,10 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var eventText: UITextField!
     @IBOutlet weak var eventButton: UIButton!
     
+    let formatter = DateFormatter()
+    var ref: DatabaseReference!
+    var user: GIDGoogleUser?
+    var countEvents = 0
     
     let outMonth = UIColor.lightGray
     let inMonth = UIColor.white
@@ -33,7 +37,13 @@ class CalendarViewController: UIViewController {
         print("CalendarViewController::viewDidLoad...")
         let swiftColor = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
         self.view.backgroundColor = swiftColor;
+
+        if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
+            print("CalendarViewController::SignedIn...")
+            user = GIDSignIn.sharedInstance().currentUser
+        }
         
+        ref = Database.database().reference()
         setupCalendar()
     }
     
@@ -56,6 +66,7 @@ class CalendarViewController: UIViewController {
             do
             {
                 try eventStore.save(event, span: .thisEvent)
+                addEventToDatabase(date: event.startDate, description: event.title)
                 print("ADDED EVENT ON \(date)")
             }
             catch let error as NSError
@@ -63,7 +74,6 @@ class CalendarViewController: UIViewController {
                 print("Error: \(error)")
             }
         }
-        
     }
     
     func checkPermissions()
@@ -118,7 +128,7 @@ class CalendarViewController: UIViewController {
         }
         
         // Enable multiple selections
-        calendar.allowsMultipleSelection  = true
+        // calendar.allowsMultipleSelection  = true
     }
 
     // Handles Coloring Of Cells
@@ -166,8 +176,28 @@ class CalendarViewController: UIViewController {
         monthLabel.text = formatter.string(from: date)
     }
     
-
+    func addEventToDatabase(date: Date, description: String)
+    {
+        print("CalendarViewController::addEventToDatabase \(description)...")
+        
+        if user != nil
+        {
+        ref.child("events").child("\(user!.userID!)").child("\(countEvents)")
+            .child("date").setValue(date.description)
+        
+        ref.child("events").child("\(user!.userID!)").child("\(countEvents)")
+            .child("description").setValue(description)
+            
+            countEvents = countEvents + 1
+        }
+        else
+        {
+            print("***FAILED TO WRITE TO DATABASE***")
+        }
+    }
 }
+
+
 
 extension CalendarViewController: JTAppleCalendarViewDataSource {
 
@@ -221,6 +251,4 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         handleCalendarLabels(from: visibleDates)
     }
-    
-
 }

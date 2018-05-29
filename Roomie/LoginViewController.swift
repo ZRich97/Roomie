@@ -39,7 +39,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
             return
         }
         
-        
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
@@ -52,11 +51,16 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
             else
             {
                 self.performSegue(withIdentifier: "GoogleLogin", sender: nil)
-                
             }
             // User is signed in
-            
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "GoogleLogin" {
+        }
+    }
+    
 
 }

@@ -175,19 +175,43 @@
                                     </collectionView>
                                 </subviews>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Event Text" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Ump-On-sys">
+                                <rect key="frame" x="16" y="496" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkD-h0-oEc">
+                                <rect key="frame" x="136" y="552" width="103" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.98278714479999996" blue="0.99572895260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add Event"/>
+                                <connections>
+                                    <action selector="addEvent:" destination="ILo-ZU-vYz" eventType="touchUpInside" id="hzu-FA-7bd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.60392156862745094" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wkD-h0-oEc" firstAttribute="top" secondItem="Ump-On-sys" secondAttribute="bottom" constant="26" id="7fa-EP-TZG"/>
+                            <constraint firstItem="zia-3S-rYl" firstAttribute="trailing" secondItem="Ump-On-sys" secondAttribute="trailing" constant="16" id="HPG-WO-WSc"/>
+                            <constraint firstItem="zia-3S-rYl" firstAttribute="bottom" secondItem="wkD-h0-oEc" secondAttribute="bottom" constant="36" id="WNm-te-5gf"/>
+                            <constraint firstItem="Ump-On-sys" firstAttribute="leading" secondItem="zia-3S-rYl" secondAttribute="leading" constant="16" id="Ybn-0q-XRR"/>
+                            <constraint firstItem="zia-3S-rYl" firstAttribute="trailing" secondItem="wkD-h0-oEc" secondAttribute="trailing" constant="136" id="bPK-VC-iaL"/>
                             <constraint firstItem="4nF-LQ-FTo" firstAttribute="top" secondItem="zia-3S-rYl" secondAttribute="top" constant="72" id="cBD-Nq-O1F"/>
                             <constraint firstItem="zia-3S-rYl" firstAttribute="bottom" secondItem="4nF-LQ-FTo" secondAttribute="bottom" constant="142.5" id="e0C-Zy-9zg"/>
                             <constraint firstItem="zia-3S-rYl" firstAttribute="trailing" secondItem="4nF-LQ-FTo" secondAttribute="trailing" id="jid-kB-m0n"/>
+                            <constraint firstItem="Ump-On-sys" firstAttribute="top" secondItem="4nF-LQ-FTo" secondAttribute="bottom" constant="20.5" id="lKw-7t-nFY"/>
                             <constraint firstItem="4nF-LQ-FTo" firstAttribute="leading" secondItem="zia-3S-rYl" secondAttribute="leading" id="rgh-PK-eLN"/>
+                            <constraint firstItem="wkD-h0-oEc" firstAttribute="top" secondItem="Ump-On-sys" secondAttribute="bottom" constant="26" id="uW4-Z4-ALU"/>
+                            <constraint firstItem="wkD-h0-oEc" firstAttribute="leading" secondItem="zia-3S-rYl" secondAttribute="leading" constant="136" id="zbw-td-TFT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zia-3S-rYl"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendar" image="calendar.png" landscapeImage="calendar.png" selectedImage="calendar.png" id="fqz-vH-hl8"/>
                     <connections>
                         <outlet property="calendar" destination="cwL-We-9qb" id="mzN-rt-fL2"/>
+                        <outlet property="eventButton" destination="wkD-h0-oEc" id="yEo-cQ-gy8"/>
+                        <outlet property="eventText" destination="Ump-On-sys" id="Gtb-4p-l98"/>
                         <outlet property="monthLabel" destination="5IZ-wh-waG" id="HgC-rC-8Cf"/>
                         <outlet property="tabBar" destination="fqz-vH-hl8" id="uy7-gw-ihu"/>
                         <outlet property="yearLabel" destination="CpQ-Cw-rUM" id="fXC-Kl-IXY"/>

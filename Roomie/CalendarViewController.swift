@@ -8,6 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
+import EventKit
 
 class CalendarViewController: UIViewController {
     
@@ -17,6 +18,10 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
+    
+    @IBOutlet weak var eventText: UITextField!
+    @IBOutlet weak var eventButton: UIButton!
+    
     
     let outMonth = UIColor.lightGray
     let inMonth = UIColor.white
@@ -28,12 +33,73 @@ class CalendarViewController: UIViewController {
         print("CalendarViewController::viewDidLoad...")
         let swiftColor = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
         self.view.backgroundColor = swiftColor;
-
+        
         setupCalendar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        checkPermissions()
+    }
+    
+    @IBAction func addEvent(_ sender: Any) {
+        let eventStore:EKEventStore = EKEventStore()
+        print("SELECTED DATES: \(calendar.selectedDates)")
+        for date in calendar.selectedDates
+        {
+            let event:EKEvent = EKEvent(eventStore: eventStore)
+            event.title = eventText.text
+            event.startDate = date
+            event.endDate = date.addingTimeInterval(120)
+            event.notes = "Added via Roomie"
+            event.calendar = eventStore.defaultCalendarForNewEvents
+            do
+            {
+                try eventStore.save(event, span: .thisEvent)
+                print("ADDED EVENT ON \(date)")
+            }
+            catch let error as NSError
+            {
+                print("Error: \(error)")
+            }
+        }
+        
+    }
+    
+    func checkPermissions()
+    {
+        let eventStore:EKEventStore = EKEventStore()
+        
+        switch EKEventStore.authorizationStatus(for: .event)
+        {
+            case .authorized:
+                print("AUTHORIZED")
+                populateCalendar()
+            case .notDetermined:
+                print("NOTDETERMINED")
+                eventStore.requestAccess(to: .event, completion: {(granted, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    else
+                    {
+                        if granted
+                        {
+                            self.populateCalendar()
+                        }
+                    }
+            })
+            case .denied:
+                    print("DENIED")
+            case .restricted:
+                    print("RESTRICTED")
+        }
+        
+    }
+        
+    func populateCalendar()
+    {
+        print("CalendarViewController::populateCalendar")
     }
     
     func setupCalendar()
@@ -50,6 +116,9 @@ class CalendarViewController: UIViewController {
         calendar.visibleDates { (visibleDates) in
             self.handleCalendarLabels(from: visibleDates)
         }
+        
+        // Enable multiple selections
+        calendar.allowsMultipleSelection  = true
     }
 
     // Handles Coloring Of Cells
@@ -108,8 +177,8 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
         
-        let startDate = formatter.date(from:"2017 01 01")!
-        let endDate = formatter.date(from:"2017 12 31")!
+        let startDate = formatter.date(from:"2018 01 01")!
+        let endDate = formatter.date(from:"2018 12 31")!
         
         let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate)
         return parameters

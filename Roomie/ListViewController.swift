@@ -14,7 +14,8 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let swiftColor = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
+        self.view.backgroundColor = swiftColor;
     }
 
 }

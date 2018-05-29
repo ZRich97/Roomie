@@ -13,11 +13,10 @@ import GoogleSignIn
 class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
 
     @IBOutlet weak var googleLogin: GIDSignInButton!
-    @IBOutlet weak var myLogin: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ViewController::viewDidLoad...")
+        print("LoginViewController::viewDidLoad...")
 
         let swiftColor = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
         self.view.backgroundColor = swiftColor;
@@ -33,7 +32,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     }
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        print("ViewController::signIn")
+        print("LoginViewController::signIn")
         
         if let error = error {
             print("ERROR: \(error)")

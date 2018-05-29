@@ -18,6 +18,7 @@
 		84E66D4620BCC49F002F7999 /* RoomieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D4520BCC49F002F7999 /* RoomieTests.swift */; };
 		84E66D5120BCC49F002F7999 /* RoomieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D5020BCC49F002F7999 /* RoomieUITests.swift */; };
 		84E66D5F20BCC7D8002F7999 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D5E20BCC7D7002F7999 /* GoogleService-Info.plist */; };
+		84E66D6920BCCF65002F7999 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D6820BCCF65002F7999 /* LaunchScreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		84E66D5020BCC49F002F7999 /* RoomieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomieUITests.swift; sourceTree = "<group>"; };
 		84E66D5220BCC49F002F7999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E66D5E20BCC7D7002F7999 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84E66D6820BCCF65002F7999 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		9A18CF932D0C9BB69A2C8ACE /* Pods-RoomieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieTests/Pods-RoomieTests.release.xcconfig"; sourceTree = "<group>"; };
 		F970FD9DFAEE4214BB8C8E95 /* Pods-RoomieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieUITests/Pods-RoomieUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +131,7 @@
 		84E66D2F20BCC49C002F7999 /* Roomie */ = {
 			isa = PBXGroup;
 			children = (
+				84E66D6620BCCF51002F7999 /* Resources */,
 				84E66D3020BCC49C002F7999 /* AppDelegate.swift */,
 				84E66D3220BCC49C002F7999 /* ViewController.swift */,
 				84E66D3420BCC49C002F7999 /* Main.storyboard */,
@@ -156,6 +159,23 @@
 				84E66D5220BCC49F002F7999 /* Info.plist */,
 			);
 			path = RoomieUITests;
+			sourceTree = "<group>";
+		};
+		84E66D6620BCCF51002F7999 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84E66D6720BCCF5B002F7999 /* Images */,
+			);
+			name = Resources;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		84E66D6720BCCF5B002F7999 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				84E66D6820BCCF65002F7999 /* LaunchScreen.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		E72DC06D79B79B3BC963A81C /* Frameworks */ = {
@@ -277,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E66D3B20BCC49F002F7999 /* LaunchScreen.storyboard in Resources */,
+				84E66D6920BCCF65002F7999 /* LaunchScreen.png in Resources */,
 				84E66D5F20BCC7D8002F7999 /* GoogleService-Info.plist in Resources */,
 				84E66D3820BCC49E002F7999 /* Assets.xcassets in Resources */,
 				84E66D3620BCC49C002F7999 /* Main.storyboard in Resources */,
@@ -558,7 +579,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Roomie/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.Roomie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -573,7 +597,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Roomie/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.Roomie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -589,7 +616,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -606,7 +637,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -622,7 +657,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -638,7 +677,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

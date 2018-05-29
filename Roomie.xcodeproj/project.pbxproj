@@ -19,6 +19,14 @@
 		84E66D5120BCC49F002F7999 /* RoomieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D5020BCC49F002F7999 /* RoomieUITests.swift */; };
 		84E66D5F20BCC7D8002F7999 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D5E20BCC7D7002F7999 /* GoogleService-Info.plist */; };
 		84E66D6920BCCF65002F7999 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D6820BCCF65002F7999 /* LaunchScreen.png */; };
+		84E66D6D20BCD789002F7999 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D6C20BCD789002F7999 /* LoginViewController.swift */; };
+		84E66D7520BCDD3B002F7999 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D7120BCDD3A002F7999 /* icon.png */; };
+		84E66D7920BCDE37002F7999 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D7620BCDE36002F7999 /* calendar.png */; };
+		84E66D7A20BCDE37002F7999 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D7720BCDE37002F7999 /* home.png */; };
+		84E66D7D20BCDE7E002F7999 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D7C20BCDE7E002F7999 /* list.png */; };
+		84E66D7F20BCDF88002F7999 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D7E20BCDF88002F7999 /* HomeViewController.swift */; };
+		84E66D8720BCDFC6002F7999 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D8620BCDFC6002F7999 /* CalendarViewController.swift */; };
+		84E66D8920BCDFCE002F7999 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D8820BCDFCE002F7999 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +69,14 @@
 		84E66D5220BCC49F002F7999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E66D5E20BCC7D7002F7999 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84E66D6820BCCF65002F7999 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
+		84E66D6C20BCD789002F7999 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		84E66D7120BCDD3A002F7999 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		84E66D7620BCDE36002F7999 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		84E66D7720BCDE37002F7999 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		84E66D7C20BCDE7E002F7999 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		84E66D7E20BCDF88002F7999 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		84E66D8620BCDFC6002F7999 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		84E66D8820BCDFCE002F7999 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9A18CF932D0C9BB69A2C8ACE /* Pods-RoomieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieTests/Pods-RoomieTests.release.xcconfig"; sourceTree = "<group>"; };
 		F970FD9DFAEE4214BB8C8E95 /* Pods-RoomieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieUITests/Pods-RoomieUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +151,10 @@
 				84E66D3020BCC49C002F7999 /* AppDelegate.swift */,
 				84E66D3220BCC49C002F7999 /* ViewController.swift */,
 				84E66D3420BCC49C002F7999 /* Main.storyboard */,
+				84E66D6C20BCD789002F7999 /* LoginViewController.swift */,
+				84E66D7E20BCDF88002F7999 /* HomeViewController.swift */,
+				84E66D8620BCDFC6002F7999 /* CalendarViewController.swift */,
+				84E66D8820BCDFCE002F7999 /* ListViewController.swift */,
 				84E66D3720BCC49E002F7999 /* Assets.xcassets */,
 				84E66D3920BCC49F002F7999 /* LaunchScreen.storyboard */,
 				84E66D3C20BCC49F002F7999 /* Info.plist */,
@@ -173,6 +193,10 @@
 		84E66D6720BCCF5B002F7999 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				84E66D7620BCDE36002F7999 /* calendar.png */,
+				84E66D7C20BCDE7E002F7999 /* list.png */,
+				84E66D7720BCDE37002F7999 /* home.png */,
+				84E66D7120BCDD3A002F7999 /* icon.png */,
 				84E66D6820BCCF65002F7999 /* LaunchScreen.png */,
 			);
 			path = Images;
@@ -296,10 +320,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E66D7920BCDE37002F7999 /* calendar.png in Resources */,
 				84E66D3B20BCC49F002F7999 /* LaunchScreen.storyboard in Resources */,
+				84E66D7D20BCDE7E002F7999 /* list.png in Resources */,
 				84E66D6920BCCF65002F7999 /* LaunchScreen.png in Resources */,
 				84E66D5F20BCC7D8002F7999 /* GoogleService-Info.plist in Resources */,
+				84E66D7A20BCDE37002F7999 /* home.png in Resources */,
 				84E66D3820BCC49E002F7999 /* Assets.xcassets in Resources */,
+				84E66D7520BCDD3B002F7999 /* icon.png in Resources */,
 				84E66D3620BCC49C002F7999 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,8 +430,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E66D8720BCDFC6002F7999 /* CalendarViewController.swift in Sources */,
+				84E66D6D20BCD789002F7999 /* LoginViewController.swift in Sources */,
+				84E66D8920BCDFCE002F7999 /* ListViewController.swift in Sources */,
 				84E66D3320BCC49C002F7999 /* ViewController.swift in Sources */,
 				84E66D3120BCC49C002F7999 /* AppDelegate.swift in Sources */,
+				84E66D7F20BCDF88002F7999 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

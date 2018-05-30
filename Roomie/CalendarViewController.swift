@@ -11,6 +11,7 @@ import JTAppleCalendar
 import EventKit
 import Firebase
 import GoogleSignIn
+import CodableFirebase
 
 class CalendarViewController: UIViewController {
    
@@ -34,12 +35,12 @@ class CalendarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CalendarViewController::viewDidLoad...")
+        print("CalendarViewController::viewDidLoad")
         let swiftColor = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
         self.view.backgroundColor = swiftColor;
 
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
-            print("CalendarViewController::SignedIn...")
+            print("CalendarViewController::SignedIn")
             user = GIDSignIn.sharedInstance().currentUser
         }
         
@@ -178,16 +179,13 @@ class CalendarViewController: UIViewController {
     
     func addEventToDatabase(date: Date, description: String)
     {
-        print("CalendarViewController::addEventToDatabase \(description)...")
+        print("CalendarViewController::addEventToDatabase \(description)")
         
         if user != nil
         {
-        ref.child("events").child("\(user!.userID!)").child("\(countEvents)")
-            .child("date").setValue(date.description)
-        
-        ref.child("events").child("\(user!.userID!)").child("\(countEvents)")
-            .child("description").setValue(description)
-            
+            let event = RoomieEvent(date: date, description: description)
+            let data = try! FirebaseEncoder().encode(event)
+            ref.child("events").child("\(user!.userID!)").setValue(data)
             countEvents = countEvents + 1
         }
         else

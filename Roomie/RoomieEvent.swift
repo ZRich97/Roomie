@@ -9,11 +9,16 @@
 import Foundation
 
 struct RoomieEvent : Codable {
-    var date: Date?
+    var date: String?
     var description: String?
 
+    init() {
+        self.date = "N/A"
+        self.description = "N/A"
+    }
+    
     init(date: Date, description: String) {
-        self.date = date
+        self.date = date.description
         self.description = description
     }
 }

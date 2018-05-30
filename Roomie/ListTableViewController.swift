@@ -8,37 +8,64 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import CodableFirebase
 
 class ListTableViewController: UITableViewController {
 
     var databaseRef: DatabaseReference!
-    var myEvents : RoomieData?
-
+    var refHandle: UInt!
+    
+    var myEvents = [RoomieEvent]()
+    var user: GIDGoogleUser!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("ListTableViewController::viewDidLoad")
+
+        if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
+            print("ListTableViewController::SignedIn")
+            user = GIDSignIn.sharedInstance().currentUser
+        }
         
         databaseRef = Database.database().reference()
-        
-        
-        
+        databaseRef.keepSynced(true)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        print("ListTableViewController::viewDidAppear")
+        fetchEvents()
+        tableView.reloadData()
+    }
+    
+    func fetchEvents()
+    {
+        print("ListTableViewController::FetchEvents")
+        databaseRef.child("events").child("\(user!.userID!)").observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let value = snapshot.value else { return }
+            do {
+                let event = try FirebaseDecoder().decode(RoomieEvent.self, from: value)
+                self.myEvents.append(event)
+                self.tableView.reloadData()
+            } catch let error {
+                print(error)
+            }
+        })
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (myEvents?.events.count) ?? 0
+        return myEvents.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "forecastDayCell", for: indexPath)
-        
-        let thisEvent = myEvents?.events[indexPath.row]
-        
-        // Configure the cell...
-        cell.textLabel?.text = "\(String(describing: thisEvent?.description))"
-        cell.detailTextLabel?.text = "\(String(describing: thisEvent?.date?.description))"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
+        let thisEvent = myEvents[indexPath.row]
+        cell.textLabel?.text = "\(String(describing: thisEvent.description!))"
+        cell.detailTextLabel?.text = "\(String(describing: thisEvent.date!.description))"
 
         return cell
     }

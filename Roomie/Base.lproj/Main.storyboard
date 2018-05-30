@@ -277,14 +277,14 @@
                     <connections>
                         <segue destination="Yiy-i6-F2t" kind="relationship" relationship="viewControllers" id="ieX-RC-5zx"/>
                         <segue destination="ILo-ZU-vYz" kind="relationship" relationship="viewControllers" id="LQE-O4-2c3"/>
-                        <segue destination="kCG-WI-jfH" kind="relationship" relationship="viewControllers" id="SuJ-vW-NBn"/>
+                        <segue destination="31F-qz-uTZ" kind="relationship" relationship="viewControllers" id="vTH-fA-Tob"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYJ-UJ-Nig" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1053" y="110"/>
         </scene>
-        <!--List Table View Controller-->
+        <!--List-->
         <scene sceneID="pe2-eG-1O2">
             <objects>
                 <tableViewController id="31F-qz-uTZ" customClass="ListTableViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
@@ -323,29 +323,11 @@
                             <outlet property="delegate" destination="31F-qz-uTZ" id="12w-4D-xLB"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="List" image="list.png" landscapeImage="list.png" selectedImage="list.png" id="pbF-VM-8lz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyX-io-aof" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2671" y="-631"/>
-        </scene>
-        <!--List-->
-        <scene sceneID="l8B-Sh-dbi">
-            <objects>
-                <viewController title="List" id="kCG-WI-jfH" customClass="ListViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IGt-Nb-uGn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Sww-o7-3Fb"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="List" image="list.png" landscapeImage="list.png" selectedImage="list.png" id="xSx-Ky-PoG"/>
-                    <connections>
-                        <outlet property="tabBar" destination="xSx-Ky-PoG" id="y4Z-F3-u3n"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6hH-pM-I9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1926" y="-631"/>
         </scene>
     </scenes>
     <resources>

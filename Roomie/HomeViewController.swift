@@ -19,12 +19,12 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("HomeViewController::viewDidLoad...")
+        print("HomeViewController::viewDidLoad")
         let swiftColor = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
         self.view.backgroundColor = swiftColor;
     
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
-            print("HomeViewController::SignedIn...")
+            print("HomeViewController::SignedIn")
             user = GIDSignIn.sharedInstance().currentUser
             
             // Asynchronously Download Weather Icon
@@ -37,13 +37,5 @@ class HomeViewController: UIViewController {
             }
             nameLabel.text = "Hello \(user?.profile.name! ?? "Non Logged-In User")"
         }
-        
-        
-
-    
     }
-    
-    
-    
-
 }

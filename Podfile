@@ -12,6 +12,8 @@ target 'Roomie' do
   pod 'Firebase/Database'
   pod 'GoogleSignIn'
   pod 'JTAppleCalendar', '~> 7.0'
+  pod 'CodableFirebase'
+
 
   target 'RoomieTests' do
     inherit! :search_paths

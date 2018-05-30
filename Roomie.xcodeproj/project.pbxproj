@@ -11,7 +11,6 @@
 		14AFC799CDD74F1E6F3F9B6C /* Pods_RoomieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1072E584047DFD3F7AC1567E /* Pods_RoomieUITests.framework */; };
 		3BA8EBCF3A259EAE9C5A1EF3 /* Pods_RoomieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2538F5E33989B2BC57DD6A25 /* Pods_RoomieTests.framework */; };
 		845E276D20BDE02F004830C0 /* RoomieEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E276C20BDE02F004830C0 /* RoomieEvent.swift */; };
-		845E276F20BDE046004830C0 /* RoomieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E276E20BDE046004830C0 /* RoomieData.swift */; };
 		845E277120BDEC86004830C0 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E277020BDEC86004830C0 /* ListTableViewController.swift */; };
 		845E277320BDFF41004830C0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E277220BDFF41004830C0 /* TabViewController.swift */; };
 		845E277520BE0114004830C0 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 845E277420BE0113004830C0 /* user.png */; };
@@ -31,7 +30,6 @@
 		84E66D7D20BCDE7E002F7999 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E66D7C20BCDE7E002F7999 /* list.png */; };
 		84E66D7F20BCDF88002F7999 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D7E20BCDF88002F7999 /* HomeViewController.swift */; };
 		84E66D8720BCDFC6002F7999 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D8620BCDFC6002F7999 /* CalendarViewController.swift */; };
-		84E66D8920BCDFCE002F7999 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E66D8820BCDFCE002F7999 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +58,6 @@
 		61A134DEE5D287AA9FCCE442 /* Pods-Roomie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roomie/Pods-Roomie.release.xcconfig"; sourceTree = "<group>"; };
 		8162BF2FBEC9F9B6977874B8 /* Pods_Roomie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roomie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		845E276C20BDE02F004830C0 /* RoomieEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomieEvent.swift; sourceTree = "<group>"; };
-		845E276E20BDE046004830C0 /* RoomieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomieData.swift; sourceTree = "<group>"; };
 		845E277020BDEC86004830C0 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		845E277220BDFF41004830C0 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		845E277420BE0113004830C0 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
@@ -86,7 +83,6 @@
 		84E66D7C20BCDE7E002F7999 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		84E66D7E20BCDF88002F7999 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		84E66D8620BCDFC6002F7999 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		84E66D8820BCDFCE002F7999 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9A18CF932D0C9BB69A2C8ACE /* Pods-RoomieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieTests/Pods-RoomieTests.release.xcconfig"; sourceTree = "<group>"; };
 		F970FD9DFAEE4214BB8C8E95 /* Pods-RoomieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieUITests/Pods-RoomieUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,9 +162,7 @@
 				84E66D8620BCDFC6002F7999 /* CalendarViewController.swift */,
 				84D315F320BD206700FC558E /* CalendarCell.swift */,
 				845E277020BDEC86004830C0 /* ListTableViewController.swift */,
-				84E66D8820BCDFCE002F7999 /* ListViewController.swift */,
 				845E276C20BDE02F004830C0 /* RoomieEvent.swift */,
-				845E276E20BDE046004830C0 /* RoomieData.swift */,
 				84E66D3720BCC49E002F7999 /* Assets.xcassets */,
 				84E66D3920BCC49F002F7999 /* LaunchScreen.storyboard */,
 				84E66D3C20BCC49F002F7999 /* Info.plist */,
@@ -409,6 +403,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Roomie/Pods-Roomie-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -418,6 +413,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -473,11 +469,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				845E276F20BDE046004830C0 /* RoomieData.swift in Sources */,
 				84E66D8720BCDFC6002F7999 /* CalendarViewController.swift in Sources */,
 				84D315F420BD206700FC558E /* CalendarCell.swift in Sources */,
 				84E66D6D20BCD789002F7999 /* LoginViewController.swift in Sources */,
-				84E66D8920BCDFCE002F7999 /* ListViewController.swift in Sources */,
 				84E66D3120BCC49C002F7999 /* AppDelegate.swift in Sources */,
 				845E277120BDEC86004830C0 /* ListTableViewController.swift in Sources */,
 				845E276D20BDE02F004830C0 /* RoomieEvent.swift in Sources */,

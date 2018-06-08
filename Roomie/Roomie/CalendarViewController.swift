@@ -36,9 +36,6 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("CalendarViewController::viewDidLoad")
-        let swiftColor = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
-        self.view.backgroundColor = swiftColor;
-
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
             print("CalendarViewController::SignedIn")
             user = GIDSignIn.sharedInstance().currentUser

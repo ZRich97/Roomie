@@ -20,8 +20,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("HomeViewController::viewDidLoad")
-        let swiftColor = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
-        self.view.backgroundColor = swiftColor;
     
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
             print("HomeViewController::SignedIn")
@@ -33,9 +31,17 @@ class HomeViewController: UIViewController {
                 let downloadedImage = UIImage(data: responseData!)
                 DispatchQueue.main.async {
                     self.profileImage.image = downloadedImage
+                    self.profileImage.layer.borderWidth = 1.0
+                    self.profileImage.layer.masksToBounds = false
+                    self.profileImage.layer.borderColor = UIColor.black.cgColor
+                    self.profileImage.layer.cornerRadius = 100
+                    self.profileImage.clipsToBounds = true
                 }
             }
             nameLabel.text = "Hello \(user?.profile.name! ?? "Non Logged-In User")"
         }
+        
+
+        
     }
 }

@@ -18,16 +18,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         super.viewDidLoad()
         print("LoginViewController::viewDidLoad")
 
-        let swiftColor = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
-        self.view.backgroundColor = swiftColor;
-
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
-
-        // GIDSignIn.sharedInstance().signIn()
-        
-        // TODO(developer) Configure the sign-in button look/feel
-        // ...
         
     }
 
@@ -50,7 +42,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
             }
             else
             {
-                self.performSegue(withIdentifier: "GoogleLogin", sender: nil)
+                self.performSegue(withIdentifier: "NewUser", sender: nil)
             }
             // User is signed in
         }
@@ -61,6 +53,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         if segue.identifier == "GoogleLogin" {
         }
     }
-    
 
 }
+

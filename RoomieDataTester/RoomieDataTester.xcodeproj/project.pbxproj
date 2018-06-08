@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3DE090A42B3754974D7CEBAC /* Pods_RoomieDataTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3FE2878C8D4EEB85196398 /* Pods_RoomieDataTester.framework */; };
+		844E425D20C7478500E6049F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E425C20C7478500E6049F /* Event.swift */; };
+		844E425F20C7479100E6049F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E425E20C7479100E6049F /* Task.swift */; };
 		8473D56B20C4B7FD00C663CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473D56A20C4B7FD00C663CE /* AppDelegate.swift */; };
 		8473D56D20C4B7FD00C663CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473D56C20C4B7FD00C663CE /* ViewController.swift */; };
 		8473D57020C4B7FD00C663CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473D56E20C4B7FD00C663CE /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 		8473D57520C4B80100C663CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8473D57320C4B80100C663CE /* LaunchScreen.storyboard */; };
 		8473D58020C4B80100C663CE /* RoomieDataTesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473D57F20C4B80100C663CE /* RoomieDataTesterTests.swift */; };
 		8473D58B20C4B80100C663CE /* RoomieDataTesterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473D58A20C4B80100C663CE /* RoomieDataTesterUITests.swift */; };
+		8473D59920C4BA5C00C663CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8473D59820C4BA5C00C663CE /* GoogleService-Info.plist */; };
+		8473D59B20C4C4D600C663CE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473D59A20C4C4D600C663CE /* User.swift */; };
 		A54817E548B217F5F3614B92 /* Pods_RoomieDataTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F292AE7EF418690449AB769 /* Pods_RoomieDataTesterTests.framework */; };
 		A552684B72CDA6686F1FE966 /* Pods_RoomieDataTesterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB66A296B4F1A30885CAD381 /* Pods_RoomieDataTesterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +47,8 @@
 		5F292AE7EF418690449AB769 /* Pods_RoomieDataTesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomieDataTesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69583DB423A210C25F77574F /* Pods-RoomieDataTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieDataTester.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieDataTester/Pods-RoomieDataTester.release.xcconfig"; sourceTree = "<group>"; };
 		6D6D9EC5A7E242DEE89611A5 /* Pods-RoomieDataTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieDataTester.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieDataTester/Pods-RoomieDataTester.debug.xcconfig"; sourceTree = "<group>"; };
+		844E425C20C7478500E6049F /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		844E425E20C7479100E6049F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		8473D56720C4B7FD00C663CE /* RoomieDataTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomieDataTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473D56A20C4B7FD00C663CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8473D56C20C4B7FD00C663CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +62,8 @@
 		8473D58620C4B80100C663CE /* RoomieDataTesterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoomieDataTesterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8473D58A20C4B80100C663CE /* RoomieDataTesterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomieDataTesterUITests.swift; sourceTree = "<group>"; };
 		8473D58C20C4B80100C663CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8473D59820C4BA5C00C663CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8473D59A20C4C4D600C663CE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		878E479E29F00F1D9E661698 /* Pods-RoomieDataTesterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieDataTesterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieDataTesterTests/Pods-RoomieDataTesterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7D98A4C09E2FB1227B9F61D /* Pods-RoomieDataTesterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieDataTesterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieDataTesterUITests/Pods-RoomieDataTesterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AB66A296B4F1A30885CAD381 /* Pods_RoomieDataTesterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomieDataTesterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,10 +134,14 @@
 			children = (
 				8473D56A20C4B7FD00C663CE /* AppDelegate.swift */,
 				8473D56C20C4B7FD00C663CE /* ViewController.swift */,
+				8473D59A20C4C4D600C663CE /* User.swift */,
+				844E425C20C7478500E6049F /* Event.swift */,
+				844E425E20C7479100E6049F /* Task.swift */,
 				8473D56E20C4B7FD00C663CE /* Main.storyboard */,
 				8473D57120C4B80100C663CE /* Assets.xcassets */,
 				8473D57320C4B80100C663CE /* LaunchScreen.storyboard */,
 				8473D57620C4B80100C663CE /* Info.plist */,
+				8473D59820C4BA5C00C663CE /* GoogleService-Info.plist */,
 			);
 			path = RoomieDataTester;
 			sourceTree = "<group>";
@@ -274,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8473D57520C4B80100C663CE /* LaunchScreen.storyboard in Resources */,
+				8473D59920C4BA5C00C663CE /* GoogleService-Info.plist in Resources */,
 				8473D57220C4B80100C663CE /* Assets.xcassets in Resources */,
 				8473D57020C4B7FD00C663CE /* Main.storyboard in Resources */,
 			);
@@ -321,15 +334,27 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RoomieDataTester/Pods-RoomieDataTester-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -381,8 +406,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844E425D20C7478500E6049F /* Event.swift in Sources */,
 				8473D56D20C4B7FD00C663CE /* ViewController.swift in Sources */,
+				844E425F20C7479100E6049F /* Task.swift in Sources */,
 				8473D56B20C4B7FD00C663CE /* AppDelegate.swift in Sources */,
+				8473D59B20C4C4D600C663CE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +586,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieDataTester/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieDataTester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -573,7 +604,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieDataTester/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieDataTester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -589,7 +623,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieDataTesterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieDataTesterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -606,7 +644,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieDataTesterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieDataTesterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -622,7 +664,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieDataTesterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieDataTesterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -638,7 +684,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoomieDataTesterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZRich97.RoomieDataTesterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -9,6 +9,7 @@ target 'RoomieDataTester' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
 
   target 'RoomieDataTesterTests' do
     inherit! :search_paths

@@ -40,6 +40,7 @@ class ListTableViewController: UITableViewController {
     
     func fetchEvents()
     {
+        myEvents.removeAll()
         print("ListTableViewController::FetchEvents")
         databaseRef.child("events").child("\(user!.userID!)").observeSingleEvent(of: .value, with: { (snapshot) in
             guard let value = snapshot.value else { return }

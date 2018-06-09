@@ -27,14 +27,14 @@ class HomeViewController: UIViewController {
             
             // Asynchronously Download Weather Icon
             DispatchQueue.global(qos: .userInitiated).async {
-                let responseData = try? Data(contentsOf: (self.user?.profile.imageURL(withDimension: 200))!)
+                let responseData = try? Data(contentsOf: (self.user?.profile.imageURL(withDimension: 100))!)
                 let downloadedImage = UIImage(data: responseData!)
                 DispatchQueue.main.async {
                     self.profileImage.image = downloadedImage
                     self.profileImage.layer.borderWidth = 1.0
                     self.profileImage.layer.masksToBounds = false
                     self.profileImage.layer.borderColor = UIColor.black.cgColor
-                    self.profileImage.layer.cornerRadius = 100
+                    self.profileImage.layer.cornerRadius = 50
                     self.profileImage.clipsToBounds = true
                 }
             }

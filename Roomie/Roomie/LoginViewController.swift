@@ -42,9 +42,15 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
             }
             else
             {
-                self.performSegue(withIdentifier: "NewUser", sender: nil)
+                if Firebase.Auth.auth().currentUser?.metadata.creationDate == Firebase.Auth.auth().currentUser?.metadata.lastSignInDate
+                {
+                    self.performSegue(withIdentifier: "NewUser", sender: nil)
+                }
+                else
+                {
+                    self.performSegue(withIdentifier: "ExistingUser", sender: nil)
+                }
             }
-            // User is signed in
         }
     }
     

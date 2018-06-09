@@ -165,7 +165,6 @@
                         <color key="backgroundColor" red="0.062745098039215685" green="0.37254901960784315" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Ixl-ua-qdC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="39c-BN-FH6"/>
-                            <constraint firstItem="Ixl-ua-qdC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="7Yt-qJ-STZ"/>
                             <constraint firstItem="HjM-0O-Mgi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="8sF-cf-DYg"/>
                             <constraint firstItem="Ixl-ua-qdC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MV5-j4-7An"/>
                             <constraint firstItem="HjM-0O-Mgi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="78" id="ULR-nE-F4Z"/>
@@ -401,7 +400,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="LTS-11-bGX" customClass="RoomieProfileCell" customModule="Roomie" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="LTS-11-bGX" customClass="HomeCollectionViewCell" customModule="Roomie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -415,7 +414,7 @@
                                             </subviews>
                                         </view>
                                         <connections>
-                                            <outlet property="imageView" destination="HiV-7N-BI6" id="1pk-Ta-qLs"/>
+                                            <outlet property="image" destination="HiV-7N-BI6" id="Xkh-on-t5V"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

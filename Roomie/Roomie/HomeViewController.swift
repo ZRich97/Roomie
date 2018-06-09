@@ -14,25 +14,11 @@ import CodableFirebase
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return roommates.count
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! HomeProfileCell
-
-        DispatchQueue.global(qos: .userInitiated).async {
-            let responseData = try? Data(contentsOf: (self.user?.profile.imageURL(withDimension: 100))!)
-            let downloadedImage = UIImage(data: responseData!)
-            DispatchQueue.main.async {
-                self.profileImage.image = downloadedImage
-                self.profileImage.layer.borderWidth = 1.0
-                self.profileImage.layer.masksToBounds = false
-                self.profileImage.layer.borderColor = UIColor.black.cgColor
-                self.profileImage.layer.cornerRadius = 50
-                self.profileImage.clipsToBounds = true
-            }
-        }
-
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! HomeCollectionViewCell
         return cell
     }
 
@@ -47,15 +33,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var roommates: [RoomieUser]!
     var databaseRef: DatabaseReference!
 
-    @IBOutlet weak var image: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("HomeViewController::viewDidLoad")
-    
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
             print("HomeViewController::SignedIn")
             user = GIDSignIn.sharedInstance().currentUser
-            
             DispatchQueue.global(qos: .userInitiated).async {
                 let responseData = try? Data(contentsOf: (self.user?.profile.imageURL(withDimension: 100))!)
                 let downloadedImage = UIImage(data: responseData!)
@@ -72,6 +54,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         databaseRef = Database.database().reference()
         databaseRef.keepSynced(true)
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {

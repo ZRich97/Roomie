@@ -13,7 +13,7 @@ import FirebaseAuth
 import CodableFirebase
 
 class CreateUserViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var houseIDField: UITextField!
     @IBOutlet weak var houseIDPasswordField: UITextField!
@@ -27,7 +27,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     var lastName: String!
     var email: String!
     var profilePicURL: String!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.usernameField.delegate = self
@@ -48,7 +48,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
             print("*** Google Login Invalid ***")
         }
     }
-
+    
     @IBAction func createAccount(_ sender: Any) {
         checkFields()
     }
@@ -70,24 +70,69 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
             errorLabel.text = "* HouseID Password Is Required *"
             errorLabel.isHidden = false
         }
+        else
+        {
+            isUserRegistered()
+        }
         
         print(" checkFields")
-        doesHouseholdExist(name: usernameField.text!, houseID: houseIDField.text!, housePassword: houseIDPasswordField.text!)
+        
+        
     }
     
-    func isUserRegistered(name: String)
+    func isUserRegistered()
     {
-            ref.child("users").child(name).observeSingleEvent(of: .value) { (snapshot) in
-                if snapshot.exists() {
-                    print("  User Exists")
-                    self.errorLabel.text = "* Username is taken *"
-                    self.errorLabel.isHidden = false
-                } else {
-                    print("  User Doesn't Exist")
-                    self.createUser()
-                    self.performSegue(withIdentifier: "UserCreated", sender: nil)
-                }
+        ref.child("users").child(usernameField.text!).observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                print("  User Exists")
+                self.errorLabel.text = "* Username is taken *"
+                self.errorLabel.isHidden = false
+            } else {
+                print("  User Doesn't Exist")
+                self.doesHouseholdExist()
             }
+        }
+    }
+    
+    func doesHouseholdExist()
+    {
+        ref.child("households").child(houseIDField.text!).observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                print("  Household Exists")
+                self.ref.child("households").child(self.houseIDField.text!).child("housePassword").observeSingleEvent(of: .value, with: { (snapshot) in
+                    let password = snapshot.value! as? String
+                    if password == self.houseIDPasswordField.text!
+                    {
+                        print("    Password Correct: \(self.ref.child("households").child("housePassword").key) and \(self.houseIDPasswordField.text!)")
+                        self.createUser()
+                        self.addToHousehold()
+                        self.performSegue(withIdentifier: "UserCreated", sender: nil)
+                    }
+                    else
+                    {
+                        print("    Password Incorrect")
+                        self.errorLabel.text = "* Invalid HouseID Password *"
+                        self.errorLabel.isHidden = false
+                    }
+                    
+                })
+                
+            } else {
+                print("  Household Doesn't Exist")
+                self.createHousehold()
+                self.createUser()
+                self.performSegue(withIdentifier: "UserCreated", sender: nil)
+            }
+        }
+    }
+    
+    func createHousehold()
+    {
+        var users = [String]()
+        users.append(usernameField.text!)
+        let house = RoomieHousehold(houseID: houseIDField.text!, housePassword: houseIDPasswordField.text!, userList: users)
+        let data = try! FirebaseEncoder().encode(house)
+        ref.child("households").child(houseIDField.text!).setValue(data)
     }
     
     func createUser()
@@ -97,48 +142,35 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
         ref.child("users").child(user.userName!).setValue(data)
     }
     
-    func doesHouseholdExist(name: String, houseID: String, housePassword: String)
+    func addToHousehold()
     {
-        ref.child("households").child(houseID).observeSingleEvent(of: .value) { (snapshot) in
-            if snapshot.exists() {
-                print("  Household Exists")
-                if self.ref.child("households").child(housePassword).key == housePassword
-                {
-                    print("    Password Correct: \(self.ref.child("households").child(housePassword).key) and \(housePassword)")
-                    self.addToHousehold(name: name, houseID: houseID)
-                    self.isUserRegistered(name: self.usernameField.text!)
-                }
-                else
-                {
-                    print("    Password Incorrect")
-                    self.errorLabel.text = "* Invalid HouseID Password *"
-                    self.errorLabel.isHidden = false
-                }
-            } else {
-                print("  Household Doesn't Exist")
-                self.createHousehold(name: name, houseID: houseID, housePassword: housePassword)
-                self.isUserRegistered(name: self.usernameField.text!)
+        ref.child("households").child(houseIDField.text!).observeSingleEvent(of: .value, with: { snapshot in
+            guard let value = snapshot.value else { return }
+            do {
+                var house = try FirebaseDecoder().decode(RoomieHousehold.self, from: value)
+                house.userList.append(self.usernameField.text!)
+                let data = try! FirebaseEncoder().encode(house)
+                self.ref.child("households").child(self.houseIDField.text!).setValue(data)
+            } catch let error {
+                print(error)
             }
+        })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserCreated" {
+     //       if let selectedSchool = sender as? School {
+       //         let destVC = segue.destination as! DetailViewController
+            //destVC.school = selectedSchool
+            //}
         }
     }
-    
-    func createHousehold(name: String, houseID: String, housePassword: String)
-    {
-        var users = [String]()
-        users.append(name)
-        let house = RoomieHousehold(houseID: houseID, housePassword: housePassword, userList: users)
-        let data = try! FirebaseEncoder().encode(house)
-        ref.child("households").child(houseID).setValue(data)
-    }
-    
-    func addToHousehold(name: String, houseID: String)
-    {
-        
-    }
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
+    
+    
+    
 }

@@ -13,7 +13,6 @@
         <!--Create User View Controller-->
         <scene sceneID="36i-Nx-FKN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wjS-Dt-wHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="QF4-yF-DyC" customClass="CreateUserViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KJ5-Wl-hUt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -143,6 +142,7 @@
                         <segue destination="UKc-PY-8rh" kind="show" identifier="UserCreated" id="Ds8-tg-bls"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wjS-Dt-wHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="118" y="-654"/>
         </scene>
@@ -387,15 +387,52 @@
                                 <color key="textColor" red="0.11764705882352941" green="0.792156862745098" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="li9-Uj-RQL">
+                                <rect key="frame" x="0.0" y="182" width="375" height="85"/>
+                                <color key="backgroundColor" red="0.29019607843137257" green="0.52549019607843139" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="3ll-3F-9o1"/>
+                                    <constraint firstAttribute="height" constant="85" id="tOx-aa-qfp"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yDx-zf-CPD">
+                                    <size key="itemSize" width="85" height="85"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="LTS-11-bGX" customClass="RoomieProfileCell" customModule="Roomie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user.png" translatesAutoresizingMaskIntoConstraints="NO" id="HiV-7N-BI6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="imageView" destination="HiV-7N-BI6" id="1pk-Ta-qLs"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.33333333333333331" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="li9-Uj-RQL" firstAttribute="trailing" secondItem="Eb7-76-CXc" secondAttribute="trailing" id="7XR-5S-fze"/>
                             <constraint firstItem="6Nj-P2-5w0" firstAttribute="leading" secondItem="Eb7-76-CXc" secondAttribute="leading" constant="137" id="ETl-Zs-eLf"/>
                             <constraint firstItem="6ob-3L-06i" firstAttribute="leading" secondItem="Eb7-76-CXc" secondAttribute="leading" constant="88" id="IE4-Xb-voh"/>
                             <constraint firstItem="6ob-3L-06i" firstAttribute="top" secondItem="6Nj-P2-5w0" secondAttribute="bottom" constant="8" id="N04-5A-XmW"/>
                             <constraint firstItem="6Nj-P2-5w0" firstAttribute="top" secondItem="Eb7-76-CXc" secondAttribute="top" constant="14" id="ORT-Zt-AUY"/>
                             <constraint firstItem="6ob-3L-06i" firstAttribute="top" secondItem="6Nj-P2-5w0" secondAttribute="bottom" constant="8" id="Tkd-4P-yas"/>
                             <constraint firstItem="Eb7-76-CXc" firstAttribute="bottom" secondItem="6ob-3L-06i" secondAttribute="bottom" constant="455.5" id="WXK-h7-Bz0"/>
+                            <constraint firstItem="li9-Uj-RQL" firstAttribute="leading" secondItem="Eb7-76-CXc" secondAttribute="leading" id="Xeo-nc-PKg"/>
+                            <constraint firstItem="li9-Uj-RQL" firstAttribute="top" secondItem="6ob-3L-06i" secondAttribute="bottom" constant="19.5" id="mcp-DM-JhK"/>
+                            <constraint firstItem="Eb7-76-CXc" firstAttribute="bottom" secondItem="li9-Uj-RQL" secondAttribute="bottom" constant="351" id="n4W-2b-P0L"/>
                             <constraint firstItem="Eb7-76-CXc" firstAttribute="trailing" secondItem="6Nj-P2-5w0" secondAttribute="trailing" constant="138" id="o3a-vd-tCC"/>
                             <constraint firstItem="Eb7-76-CXc" firstAttribute="trailing" secondItem="6ob-3L-06i" secondAttribute="trailing" constant="88" id="uxi-H2-rCE"/>
                         </constraints>
@@ -403,6 +440,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home.png" landscapeImage="home.png" selectedImage="home.png" id="Hnn-Uo-W6Q"/>
                     <connections>
+                        <outlet property="collectionView" destination="li9-Uj-RQL" id="FTi-zB-YwO"/>
                         <outlet property="nameLabel" destination="6ob-3L-06i" id="CqG-sa-TTu"/>
                         <outlet property="profileImage" destination="6Nj-P2-5w0" id="PmM-dW-6A4"/>
                         <outlet property="tabBar" destination="Hnn-Uo-W6Q" id="Dwo-lq-aHB"/>
@@ -487,6 +525,6 @@
         <image name="user.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ds8-tg-bls"/>
+        <segue reference="uRq-uH-zJG"/>
     </inferredMetricsTieBreakers>
 </document>

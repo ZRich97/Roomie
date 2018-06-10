@@ -12,6 +12,7 @@ struct RoomieHousehold : Codable {
     var houseID: String!
     var housePassword: String!
     var userList: [String]!
+    
     init(houseID: String, housePassword: String, userList: [String]) {
         self.houseID = houseID
         self.housePassword = housePassword

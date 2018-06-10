@@ -14,30 +14,40 @@ import CodableFirebase
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return roommates.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! HomeCollectionViewCell
+        let url = URL(string: roommates[indexPath.row].profilePictureURL)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                cell.button.setImage(UIImage(data: data!), for: UIControlState.normal)
+                cell.layer.borderWidth = 1.0
+                cell.layer.masksToBounds = false
+                cell.layer.borderColor = UIColor.black.cgColor
+                cell.layer.cornerRadius = 42.5
+               cell.clipsToBounds = true
+            }
+        }
         return cell
     }
-
+    
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var googleUser: GIDGoogleUser!
     var roomieUser: RoomieUser!
-    var roommates: [RoomieUser]!
+    var roommates = [RoomieUser]()
     var ref: DatabaseReference!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
-            print("HomeViewController::SignedIn")
             googleUser = GIDSignIn.sharedInstance().currentUser
             nameLabel.text = "Hello \(googleUser?.profile.givenName! ?? "Non Logged-In User")"
         }
@@ -51,15 +61,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        loadUserDate()
-        
+        loadUserData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         //TODO: updates
     }
     
-    func loadUserDate()
+    func loadUserData()
     {
         ref.child("users").child(googleUser.userID).observeSingleEvent(of: .value, with: { snapshot in
             guard let value = snapshot.value else { return }
@@ -76,7 +85,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     {
         let url = URL(string: roomieUser.profilePictureURL)
         DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+            let data = try? Data(contentsOf: url!)
             DispatchQueue.main.async {
                 self.profileImage.image = UIImage(data: data!)
                 self.profileImage.layer.borderWidth = 1.0
@@ -84,13 +93,37 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.profileImage.layer.borderColor = UIColor.black.cgColor
                 self.profileImage.layer.cornerRadius = 50
                 self.profileImage.clipsToBounds = true
+                self.updateRoommateView()
             }
         }
     }
     
     func updateRoommateView()
     {
-        
+        print(roomieUser.houseID)
+        ref.child("households").child(roomieUser.houseID).child("userList").observeSingleEvent(of: .value, with: { snapshot in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let key = snap.key
+                let value = snap.value
+                print("key = \(key)  value = \(value!)")
+                self.loadRoommateData(userID: value! as! String)
+            }
+        })
+    }
+    
+    func loadRoommateData(userID: String)
+    {
+        ref.child("users").child(userID).observeSingleEvent(of: .value, with: { snapshot in
+            guard let value = snapshot.value else { return }
+            do {
+                let user = try FirebaseDecoder().decode(RoomieUser.self, from: value)
+                self.roommates.append(user)
+                self.collectionView.reloadData()
+            } catch let error {
+                print(error)
+            }
+        })
     }
     
     func updateListView()

@@ -10,4 +10,8 @@ import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var button: UIButton!
+    @IBAction func imageClicked(_ sender: Any) {
+        print("clicked")
+    }
 }

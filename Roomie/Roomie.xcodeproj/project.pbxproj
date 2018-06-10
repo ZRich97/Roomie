@@ -10,6 +10,7 @@
 		078FDE2C0F458552342E4E85 /* Pods_Roomie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8162BF2FBEC9F9B6977874B8 /* Pods_Roomie.framework */; };
 		14AFC799CDD74F1E6F3F9B6C /* Pods_RoomieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1072E584047DFD3F7AC1567E /* Pods_RoomieUITests.framework */; };
 		3BA8EBCF3A259EAE9C5A1EF3 /* Pods_RoomieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2538F5E33989B2BC57DD6A25 /* Pods_RoomieTests.framework */; };
+		8405DAE820CDC20500DB6832 /* RoommateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405DAE720CDC20500DB6832 /* RoommateViewController.swift */; };
 		844E426120C76C3100E6049F /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E426020C76C3100E6049F /* CreateUserViewController.swift */; };
 		844E426920C7C22D00E6049F /* RoomieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E426820C7C22D00E6049F /* RoomieUser.swift */; };
 		845E276D20BDE02F004830C0 /* RoomieEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E276C20BDE02F004830C0 /* RoomieEvent.swift */; };
@@ -61,6 +62,7 @@
 		2F227326E1E0F44D57469E7A /* Pods-RoomieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomieTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoomieTests/Pods-RoomieTests.debug.xcconfig"; sourceTree = "<group>"; };
 		61A134DEE5D287AA9FCCE442 /* Pods-Roomie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roomie/Pods-Roomie.release.xcconfig"; sourceTree = "<group>"; };
 		8162BF2FBEC9F9B6977874B8 /* Pods_Roomie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roomie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8405DAE720CDC20500DB6832 /* RoommateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateViewController.swift; sourceTree = "<group>"; };
 		844E426020C76C3100E6049F /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		844E426820C7C22D00E6049F /* RoomieUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomieUser.swift; sourceTree = "<group>"; };
 		845E276C20BDE02F004830C0 /* RoomieEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomieEvent.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				845E277220BDFF41004830C0 /* TabViewController.swift */,
 				84E66D7E20BCDF88002F7999 /* HomeViewController.swift */,
 				84B59FBA20CC486D0001269C /* HomeCollectionViewCell.swift */,
+				8405DAE720CDC20500DB6832 /* RoommateViewController.swift */,
 				84E66D8620BCDFC6002F7999 /* CalendarViewController.swift */,
 				84D315F320BD206700FC558E /* CalendarCell.swift */,
 				845E277020BDEC86004830C0 /* ListTableViewController.swift */,
@@ -490,6 +493,7 @@
 				84A7B9D220C9FF800030A22A /* RoomieHousehold.swift in Sources */,
 				844E426120C76C3100E6049F /* CreateUserViewController.swift in Sources */,
 				845E276D20BDE02F004830C0 /* RoomieEvent.swift in Sources */,
+				8405DAE820CDC20500DB6832 /* RoommateViewController.swift in Sources */,
 				845E277320BDFF41004830C0 /* TabViewController.swift in Sources */,
 				84E66D7F20BCDF88002F7999 /* HomeViewController.swift in Sources */,
 				84B59FBB20CC486D0001269C /* HomeCollectionViewCell.swift in Sources */,

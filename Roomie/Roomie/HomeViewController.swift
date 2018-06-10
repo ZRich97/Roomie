@@ -104,10 +104,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         ref.child("households").child(roomieUser.houseID).child("userList").observeSingleEvent(of: .value, with: { snapshot in
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
-                let key = snap.key
-                let value = snap.value
-                print("key = \(key)  value = \(value!)")
-                self.loadRoommateData(userID: value! as! String)
+                self.loadRoommateData(userID: snap.value! as! String)
             }
         })
     }

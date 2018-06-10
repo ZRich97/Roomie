@@ -28,45 +28,75 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var user: GIDGoogleUser!
-    var myUser: RoomieUser!
+    var googleUser: GIDGoogleUser!
+    var roomieUser: RoomieUser!
     var roommates: [RoomieUser]!
-    var databaseRef: DatabaseReference!
+    var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
             print("HomeViewController::SignedIn")
-            user = GIDSignIn.sharedInstance().currentUser
-            DispatchQueue.global(qos: .userInitiated).async {
-                let responseData = try? Data(contentsOf: (self.user?.profile.imageURL(withDimension: 100))!)
-                let downloadedImage = UIImage(data: responseData!)
-                DispatchQueue.main.async {
-                    self.profileImage.image = downloadedImage
-                    self.profileImage.layer.borderWidth = 1.0
-                    self.profileImage.layer.masksToBounds = false
-                    self.profileImage.layer.borderColor = UIColor.black.cgColor
-                    self.profileImage.layer.cornerRadius = 50
-                    self.profileImage.clipsToBounds = true
-                }
-            }
-            nameLabel.text = "Hello \(user?.profile.givenName! ?? "Non Logged-In User")"
+            googleUser = GIDSignIn.sharedInstance().currentUser
+            nameLabel.text = "Hello \(googleUser?.profile.givenName! ?? "Non Logged-In User")"
         }
-        databaseRef = Database.database().reference()
-        databaseRef.keepSynced(true)
+        else
+        {
+            //TODO: ERROR WITH GOOGLE LOGIN, SEND BACK
+        }
+        
+        ref = Database.database().reference()
+        ref.keepSynced(true)
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        loadUserDate()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        databaseRef.child("events").child("\(user!.userID!)").observeSingleEvent(of: .value, with: { (snapshot) in
+        //TODO: updates
+    }
+    
+    func loadUserDate()
+    {
+        ref.child("users").child(googleUser.userID).observeSingleEvent(of: .value, with: { snapshot in
             guard let value = snapshot.value else { return }
             do {
-                let event = try FirebaseDecoder().decode(RoomieEvent.self, from: value)
+                self.roomieUser = try FirebaseDecoder().decode(RoomieUser.self, from: value)
+                self.updateUserView()
             } catch let error {
                 print(error)
             }
         })
     }
+    
+    func updateUserView()
+    {
+        let url = URL(string: roomieUser.profilePictureURL)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+            DispatchQueue.main.async {
+                self.profileImage.image = UIImage(data: data!)
+                self.profileImage.layer.borderWidth = 1.0
+                self.profileImage.layer.masksToBounds = false
+                self.profileImage.layer.borderColor = UIColor.black.cgColor
+                self.profileImage.layer.cornerRadius = 50
+                self.profileImage.clipsToBounds = true
+            }
+        }
+    }
+    
+    func updateRoommateView()
+    {
+        
+    }
+    
+    func updateListView()
+    {
+        
+    }
+    
     
 }

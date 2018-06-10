@@ -129,7 +129,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     func createHousehold()
     {
         var users = [String]()
-        users.append(usernameField.text!)
+        users.append(googleUser.userID)
         let house = RoomieHousehold(houseID: houseIDField.text!, housePassword: houseIDPasswordField.text!, userList: users)
         let data = try! FirebaseEncoder().encode(house)
         ref.child("households").child(houseIDField.text!).setValue(data)
@@ -139,7 +139,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     {
         let user = RoomieUser(userName: usernameField.text!, houseID: houseIDField.text!, firstName: firstName, lastName: lastName, email: email, profilePictureURL: profilePicURL)
         let data = try! FirebaseEncoder().encode(user)
-        ref.child("users").child(user.userName!).setValue(data)
+        ref.child("users").child(googleUser.userID!).setValue(data)
     }
     
     func addToHousehold()
@@ -155,15 +155,6 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
                 print(error)
             }
         })
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "UserCreated" {
-     //       if let selectedSchool = sender as? School {
-       //         let destVC = segue.destination as! DetailViewController
-            //destVC.school = selectedSchool
-            //}
-        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

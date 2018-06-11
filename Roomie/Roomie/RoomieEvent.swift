@@ -12,8 +12,8 @@ struct RoomieEvent : Codable {
     var date: String!
     var description: String!
     
-    init(date: Date, description: String) {
-        self.date = date.description
+    init(date: String, description: String) {
+        self.date = date
         self.description = description
     }
 }

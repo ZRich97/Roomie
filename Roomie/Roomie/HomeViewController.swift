@@ -11,7 +11,28 @@ import Firebase
 import GoogleSignIn
 import CodableFirebase
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myTasks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myTaskCell", for: indexPath)
+        
+        if indexPath.row >= myTasks.count
+        {
+            return cell
+        }
+        let thisTask = myTasks[indexPath.row]
+        cell.textLabel?.text = thisTask.description!
+        cell.detailTextLabel?.text = thisTask.date!
+        return cell
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return roommates.count
@@ -45,7 +66,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var roomieUser: RoomieUser!
     var roommates = [RoomieUser]()
     var ref: DatabaseReference!
-    
+    var myTasks = [RoomieEvent]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,12 +84,22 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         ref.keepSynced(true)
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        tableView.delegate = self
+        tableView.dataSource = self
         loadUserData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         //TODO: updates
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch  {
+            print("Error Logging Out.")
+        }
+        GIDSignIn.sharedInstance().signOut()
     }
     
     func loadUserData()
@@ -77,6 +109,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             do {
                 self.roomieUser = try FirebaseDecoder().decode(RoomieUser.self, from: value)
                 self.updateUserView()
+                self.myTasks = self.roomieUser.myTasks
+                self.tableView.reloadData()
             } catch let error {
                 print(error)
             }

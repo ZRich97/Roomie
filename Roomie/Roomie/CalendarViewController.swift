@@ -33,9 +33,10 @@ class CalendarViewController: UIViewController {
     let inMonth = UIColor.white
     let selectedMonth = UIColor.black
     let currentDate = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
-    
+    let dateFormatter = DateFormatter()
     override func viewDidLoad() {
         super.viewDidLoad()
+        dateFormatter.dateFormat = "MMMM dd yyyy"
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
             googleUser = GIDSignIn.sharedInstance().currentUser
         }
@@ -194,7 +195,7 @@ class CalendarViewController: UIViewController {
                 {
                     house.eventList = [RoomieEvent]()
                 }
-                house.eventList.append(RoomieEvent(date: date, description: description))
+                house.eventList.append(RoomieEvent(date: self.dateFormatter.string(from: date), description: description))
                 let data = try! FirebaseEncoder().encode(house)
                 self.ref.child("households").child(self.roomieUser.houseID).setValue(data)
             } catch let error {

@@ -24,7 +24,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var roommates = [RoomieUser]()
     var ref: DatabaseReference!
     var myTasks = [RoomieEvent]()
-    var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +44,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.allowsSelection = true
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        roommates.removeAll()
         loadUserData()
     }
     
@@ -121,6 +124,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if segue.identifier == "RoommateSegue" {
             let selectedUser = sender as! Int
             let vc = segue.destination as! RoommateViewController
+            print(roommates[selectedUser].email)
             vc.roomieUser = roommates[selectedUser]
         }
     }

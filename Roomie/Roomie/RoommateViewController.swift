@@ -12,7 +12,7 @@ import CodableFirebase
 import GoogleSignIn
 
 class RoommateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
@@ -23,17 +23,19 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
     
     func addTaskToDatabase(date: Date, description: String)
     {
-        ref.child("users").child("100435097124622590593").observeSingleEvent(of: .value, with: { snapshot in
+        ref.child("users").child(roomieUser.userID).observeSingleEvent(of: .value, with: { snapshot in
             guard let value = snapshot.value else { return }
             do {
-                var house = try FirebaseDecoder().decode(RoomieHousehold.self, from: value)
-                if house.eventList == nil
+                var user = try FirebaseDecoder().decode(RoomieUser.self, from: value)
+                if user.myTasks == nil
                 {
-                    house.eventList = [RoomieEvent]()
+                    user.myTasks = [RoomieEvent]()
                 }
-                house.eventList.append(RoomieEvent(date: self.formatter.string(from: date), description: description))
-                let data = try! FirebaseEncoder().encode(house)
-                self.ref.child("households").child(self.roomieUser.houseID).setValue(data)
+                user.myTasks.append(RoomieEvent(date: self.formatter.string(from: date), description: description))
+                self.roomieUser.myTasks.append(RoomieEvent(date: self.formatter.string(from: date), description: description))
+                let data = try! FirebaseEncoder().encode(user)
+                self.ref.child("users").child(self.roomieUser.userID).setValue(data)
+                self.tableView.reloadData()
             } catch let error {
                 print(error)
             }
@@ -44,11 +46,11 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
     var roomieUser: RoomieUser!
     var ref: DatabaseReference!
     let formatter = DateFormatter()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         formatter.dateFormat = "MMMM dd yyyy"
-
+        
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
             googleUser = GIDSignIn.sharedInstance().currentUser
         }
@@ -61,7 +63,6 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
         ref.keepSynced(true)
         tableView.delegate = self
         tableView.dataSource = self
-        
         let url = URL(string: roomieUser.profilePictureURL)
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: url!)
@@ -74,8 +75,8 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
                 self.profilePic.clipsToBounds = true
             }
         }
+        tableView.reloadData()
     }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -87,7 +88,7 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete  {
-        roomieUser.myTasks.remove(at: indexPath.row)
+            roomieUser.myTasks.remove(at: indexPath.row)
             let data = try! FirebaseEncoder().encode(roomieUser)
             self.ref.child("users").child(googleUser.userID).setValue(data)
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -109,7 +110,6 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoommateTask", for: indexPath)
-        
         if indexPath.row >= roomieUser.myTasks.count
         {
             return cell
@@ -118,8 +118,4 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
         cell.textLabel?.text = thisTask.description!
         return cell
     }
-    
-    
-    
-
 }

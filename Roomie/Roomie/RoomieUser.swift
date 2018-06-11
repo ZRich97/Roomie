@@ -16,8 +16,9 @@ struct RoomieUser : Codable {
     var email: String!
     var profilePictureURL: String!
     var myTasks: [RoomieEvent]!
+    var userID: String!
     
-    init(userName: String, houseID: String, firstName: String, lastName: String, email: String, profilePictureURL: String, myTasks: [RoomieEvent]) {
+    init(userName: String, houseID: String, firstName: String, lastName: String, email: String, profilePictureURL: String, myTasks: [RoomieEvent], userID: String) {
         self.userName = userName
         self.houseID = houseID
         self.firstName = firstName
@@ -25,5 +26,6 @@ struct RoomieUser : Codable {
         self.email = email
         self.profilePictureURL = profilePictureURL
         self.myTasks = myTasks
+        self.userID = userID
     }
 }

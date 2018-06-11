@@ -10,6 +10,4 @@ import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var button: UIButton!
-    var user: RoomieUser!
 }

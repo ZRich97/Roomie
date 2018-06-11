@@ -13,49 +13,6 @@ import CodableFirebase
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myTasks.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myTaskCell", for: indexPath)
-        
-        if indexPath.row >= myTasks.count
-        {
-            return cell
-        }
-        let thisTask = myTasks[indexPath.row]
-        cell.textLabel?.text = thisTask.description!
-        cell.detailTextLabel?.text = thisTask.date!
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return roommates.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! HomeCollectionViewCell
-        let url = URL(string: roommates[indexPath.row].profilePictureURL)
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                cell.button.setImage(UIImage(data: data!), for: UIControlState.normal)
-                cell.layer.borderWidth = 1.0
-                cell.layer.masksToBounds = false
-                cell.layer.borderColor = UIColor.black.cgColor
-                cell.layer.cornerRadius = 42.5
-                cell.clipsToBounds = true
-            }
-        }
-        cell.user = roommates[indexPath.row]
-        return cell
-    }
-    
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -67,7 +24,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var roommates = [RoomieUser]()
     var ref: DatabaseReference!
     var myTasks = [RoomieEvent]()
-
+    var index = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,13 +42,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         ref.keepSynced(true)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.allowsSelection = true
         tableView.delegate = self
         tableView.dataSource = self
         loadUserData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        //TODO: updates
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -158,17 +113,80 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         })
     }
     
-    func updateListView()
-    {
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showRoommate" {
-            let destVC = segue.destination as! RoommateViewController
-            destVC.user = roomieUser
+        if segue.identifier == "RoommateSegue" {
+            let vc = segue.destination as! RoommateViewController
+            print("segue")
+            print(index)
+            print(roommates.count)
+            vc.roomieUser = roommates[index]
         }
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete  {
+            myTasks.remove(at: indexPath.row)
+            roomieUser.myTasks = myTasks
+            let data = try! FirebaseEncoder().encode(roomieUser)
+            self.ref.child("users").child(googleUser.userID).setValue(data)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+        }
+        else if editingStyle == .insert
+        {
+            print("inserting...")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myTasks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myTaskCell", for: indexPath)
+        
+        if indexPath.row >= myTasks.count
+        {
+            return cell
+        }
+        let thisTask = myTasks[indexPath.row]
+        cell.textLabel?.text = thisTask.description!
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return roommates.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! HomeCollectionViewCell
+        let url = URL(string: roommates[indexPath.row].profilePictureURL)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                cell.image.image = UIImage(data: data!)
+                cell.layer.borderWidth = 1.0
+                cell.layer.masksToBounds = false
+                cell.layer.borderColor = UIColor.black.cgColor
+                cell.layer.cornerRadius = 42.5
+                cell.clipsToBounds = true
+            }
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected something")
+        print(index)
+        index = indexPath.row
+    }
     
 }

@@ -115,18 +115,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 print(error)
             }
         })
-        
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "RoommateSegue" {
+            let selectedUser = sender as! Int
             let vc = segue.destination as! RoommateViewController
-            print("segue")
-            print(index)
-            print(roommates.count)
-            vc.roomieUser = roommates[index]
+            vc.roomieUser = roommates[selectedUser]
         }
     }
     
@@ -191,9 +186,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected something")
-        print(index)
-        index = indexPath.row
+        performSegue(withIdentifier: "RoommateSegue", sender: indexPath.row)
     }
     
 }

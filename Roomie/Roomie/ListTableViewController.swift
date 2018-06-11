@@ -26,7 +26,6 @@ class ListTableViewController: UITableViewController {
         }
         ref = Database.database().reference()
         ref.keepSynced(true)
-        loadUserData()
     }
 
     override func viewDidAppear(_ animated: Bool) {

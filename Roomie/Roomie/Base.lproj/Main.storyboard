@@ -422,7 +422,6 @@
                                         </view>
                                         <connections>
                                             <outlet property="image" destination="HiV-7N-BI6" id="Xkh-on-t5V"/>
-                                            <segue destination="LD3-ec-yat" kind="show" identifier="RoommateSegue" id="fkD-9o-VPg"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -513,6 +512,7 @@
                         <outlet property="profileImage" destination="6Nj-P2-5w0" id="PmM-dW-6A4"/>
                         <outlet property="tabBar" destination="Hnn-Uo-W6Q" id="Dwo-lq-aHB"/>
                         <outlet property="tableView" destination="B4F-Gj-ZfA" id="kwr-4S-Kcu"/>
+                        <segue destination="LD3-ec-yat" kind="show" identifier="RoommateSegue" id="Pvr-jl-Rbv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcz-5W-AB3" userLabel="First Responder" sceneMemberID="firstResponder"/>

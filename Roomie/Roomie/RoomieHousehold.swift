@@ -12,10 +12,12 @@ struct RoomieHousehold : Codable {
     var houseID: String!
     var housePassword: String!
     var userList: [String]!
+    var eventList: [RoomieEvent]!
     
-    init(houseID: String, housePassword: String, userList: [String]) {
+    init(houseID: String, housePassword: String, userList: [String], eventList: [RoomieEvent]) {
         self.houseID = houseID
         self.housePassword = housePassword
         self.userList = userList
+        self.eventList = eventList
     }
 }

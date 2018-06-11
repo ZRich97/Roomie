@@ -25,24 +25,37 @@ class CalendarViewController: UIViewController {
     
     let formatter = DateFormatter()
     var ref: DatabaseReference!
-    var user: GIDGoogleUser?
+    var googleUser: GIDGoogleUser!
     var countEvents = 0
-    
+    var roomieUser: RoomieUser!
+
     let outMonth = UIColor.lightGray
     let inMonth = UIColor.white
     let selectedMonth = UIColor.gray
     let currentDate = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CalendarViewController::viewDidLoad")
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
-            print("CalendarViewController::SignedIn")
-            user = GIDSignIn.sharedInstance().currentUser
+            googleUser = GIDSignIn.sharedInstance().currentUser
         }
-        
         ref = Database.database().reference()
+        ref.keepSynced(true)
+        loadUserData()
         setupCalendar()
+    }
+    
+    func loadUserData()
+    {
+        ref.child("users").child(googleUser.userID).observeSingleEvent(of: .value, with: { snapshot in
+            guard let value = snapshot.value else { return }
+            do {
+                self.roomieUser = try FirebaseDecoder().decode(RoomieUser.self, from: value)
+            } catch let error {
+                print(error)
+            }
+        })
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,7 +65,6 @@ class CalendarViewController: UIViewController {
     
     @IBAction func addEvent(_ sender: Any) {
         let eventStore:EKEventStore = EKEventStore()
-        print("SELECTED DATES: \(calendar.selectedDates)")
         for date in calendar.selectedDates
         {
             let event:EKEvent = EKEvent(eventStore: eventStore)
@@ -65,7 +77,6 @@ class CalendarViewController: UIViewController {
             {
                 try eventStore.save(event, span: .thisEvent)
                 addEventToDatabase(date: event.startDate, description: event.title)
-                print("ADDED EVENT ON \(date)")
             }
             catch let error as NSError
             {
@@ -81,7 +92,6 @@ class CalendarViewController: UIViewController {
         switch EKEventStore.authorizationStatus(for: .event)
         {
             case .authorized:
-                print("AUTHORIZED")
                 populateCalendar()
             case .notDetermined:
                 print("NOTDETERMINED")
@@ -107,7 +117,7 @@ class CalendarViewController: UIViewController {
         
     func populateCalendar()
     {
-        print("CalendarViewController::populateCalendar")
+        //TODO: Load events
     }
     
     func setupCalendar()
@@ -176,23 +186,25 @@ class CalendarViewController: UIViewController {
     
     func addEventToDatabase(date: Date, description: String)
     {
-        print("CalendarViewController::addEventToDatabase \(description)")
-        
-        if user != nil
-        {
-            let event = RoomieEvent(date: date, description: description)
-            let data = try! FirebaseEncoder().encode(event)
-            ref.child("events").child("\(user!.userID!)").setValue(data)
-            countEvents = countEvents + 1
-        }
-        else
-        {
-            print("***FAILED TO WRITE TO DATABASE***")
-        }
+        ref.child("households").child(roomieUser.houseID).observeSingleEvent(of: .value, with: { snapshot in
+            guard let value = snapshot.value else { return }
+            do {
+                var house = try FirebaseDecoder().decode(RoomieHousehold.self, from: value)
+                print(house.houseID)
+                if house.eventList == nil
+                {
+                    house.eventList = [RoomieEvent]()
+                }
+                house.eventList.append(RoomieEvent(date: date, description: description))
+                let data = try! FirebaseEncoder().encode(house)
+                self.ref.child("households").child(self.roomieUser.houseID).setValue(data)
+            } catch let error {
+                print(error)
+            }
+        })
     }
+    
 }
-
-
 
 extension CalendarViewController: JTAppleCalendarViewDataSource {
 
@@ -201,19 +213,14 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         formatter.dateFormat = "yyyy MM dd"
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
-        
         let startDate = Date()
         let endDate = formatter.date(from:"2018 12 31")!
-        
         let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate)
         return parameters
     }
-    
-
 }
 
 extension CalendarViewController: JTAppleCalendarViewDelegate {
-    
     // Create Cell
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "myCell", for: indexPath) as! CalendarCell

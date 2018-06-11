@@ -13,45 +13,62 @@ import CodableFirebase
 
 class ListTableViewController: UITableViewController {
 
-    var databaseRef: DatabaseReference!
-    var refHandle: UInt!
+    var ref: DatabaseReference!
     
     var myEvents = [RoomieEvent]()
-    var user: GIDGoogleUser!
-    
+    var googleUser: GIDGoogleUser!
+    var roomieUser: RoomieUser!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ListTableViewController::viewDidLoad")
-
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
-            print("ListTableViewController::SignedIn")
-            user = GIDSignIn.sharedInstance().currentUser
+            googleUser = GIDSignIn.sharedInstance().currentUser
         }
-        
-        databaseRef = Database.database().reference()
-        databaseRef.keepSynced(true)
+        ref = Database.database().reference()
+        ref.keepSynced(true)
+        loadUserData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        print("ListTableViewController::viewDidAppear")
         fetchEvents()
-        tableView.reloadData()
+    }
+    
+    func loadUserData()
+    {
+        ref.child("users").child(googleUser.userID).observeSingleEvent(of: .value, with: { snapshot in
+            guard let value = snapshot.value else { return }
+            do {
+                self.roomieUser = try FirebaseDecoder().decode(RoomieUser.self, from: value)
+            } catch let error {
+                print(error)
+            }
+        })
     }
     
     func fetchEvents()
     {
         myEvents.removeAll()
-        print("ListTableViewController::FetchEvents")
-        databaseRef.child("events").child("\(user!.userID!)").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("households").child(roomieUser.houseID).observeSingleEvent(of: .value, with: { snapshot in
             guard let value = snapshot.value else { return }
             do {
-                let event = try FirebaseDecoder().decode(RoomieEvent.self, from: value)
-                self.myEvents.append(event)
+                var house = try FirebaseDecoder().decode(RoomieHousehold.self, from: value)
+                print(house.houseID)
+                if house.eventList == nil
+                {
+                    house.eventList = [RoomieEvent]()
+                }
+                else
+                {
+                    for event in house.eventList {
+                        self.myEvents.append(event)
+                    }
+                }
                 self.tableView.reloadData()
             } catch let error {
                 print(error)
             }
         })
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

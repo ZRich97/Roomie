@@ -28,9 +28,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 cell.layer.masksToBounds = false
                 cell.layer.borderColor = UIColor.black.cgColor
                 cell.layer.cornerRadius = 42.5
-               cell.clipsToBounds = true
+                cell.clipsToBounds = true
             }
         }
+        cell.user = roommates[indexPath.row]
         return cell
     }
     
@@ -126,6 +127,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func updateListView()
     {
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showRoommate" {
+            let destVC = segue.destination as! RoommateViewController
+            destVC.user = roomieUser
+        }
     }
     
     

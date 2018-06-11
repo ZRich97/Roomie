@@ -82,7 +82,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     
     func isUserRegistered()
     {
-        ref.child("users").child(usernameField.text!).observeSingleEvent(of: .value) { (snapshot) in
+        ref.child("users").child(googleUser.userID!).observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() {
                 print("  User Exists")
                 self.errorLabel.text = "* Username is taken *"
@@ -130,7 +130,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     {
         var users = [String]()
         users.append(googleUser.userID)
-        let house = RoomieHousehold(houseID: houseIDField.text!, housePassword: houseIDPasswordField.text!, userList: users)
+        let house = RoomieHousehold(houseID: houseIDField.text!, housePassword: houseIDPasswordField.text!, userList: users, eventList: [RoomieEvent]())
         let data = try! FirebaseEncoder().encode(house)
         ref.child("households").child(houseIDField.text!).setValue(data)
     }
@@ -148,7 +148,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
             guard let value = snapshot.value else { return }
             do {
                 var house = try FirebaseDecoder().decode(RoomieHousehold.self, from: value)
-                house.userList.append(self.usernameField.text!)
+                house.userList.append(self.googleUser.userID!)
                 let data = try! FirebaseEncoder().encode(house)
                 self.ref.child("households").child(self.houseIDField.text!).setValue(data)
             } catch let error {

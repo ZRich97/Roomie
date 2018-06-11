@@ -31,7 +31,7 @@ class CalendarViewController: UIViewController {
 
     let outMonth = UIColor.lightGray
     let inMonth = UIColor.white
-    let selectedMonth = UIColor.gray
+    let selectedMonth = UIColor.black
     let currentDate = UIColor(red: 0/255, green: 154/255, blue: 193/255, alpha: 1)
     
     override func viewDidLoad() {
@@ -165,7 +165,7 @@ class CalendarViewController: UIViewController {
         guard let validCell = view as? CalendarCell else { return }
         if(validCell.isSelected)
         {
-            validCell.selectedView.isHidden = false
+            //validCell.selectedView.isHidden = false
         }
         else
         {

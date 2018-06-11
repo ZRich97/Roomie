@@ -82,9 +82,8 @@ class ListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
         let thisEvent = myEvents[indexPath.row]
-        cell.textLabel?.text = "\(String(describing: thisEvent.description!))"
-        cell.detailTextLabel?.text = "\(String(describing: thisEvent.date!.description))"
-
+        cell.textLabel?.text = thisEvent.description!
+        cell.detailTextLabel?.text = thisEvent.date!
         return cell
     }
 

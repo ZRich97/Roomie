@@ -190,7 +190,6 @@ class CalendarViewController: UIViewController {
             guard let value = snapshot.value else { return }
             do {
                 var house = try FirebaseDecoder().decode(RoomieHousehold.self, from: value)
-                print(house.houseID)
                 if house.eventList == nil
                 {
                     house.eventList = [RoomieEvent]()

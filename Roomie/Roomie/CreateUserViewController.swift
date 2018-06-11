@@ -137,7 +137,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     
     func createUser()
     {
-        let user = RoomieUser(userName: usernameField.text!, houseID: houseIDField.text!, firstName: firstName, lastName: lastName, email: email, profilePictureURL: profilePicURL)
+        let user = RoomieUser(userName: usernameField.text!, houseID: houseIDField.text!, firstName: firstName, lastName: lastName, email: email, profilePictureURL: profilePicURL, myTasks: [RoomieEvent]())
         let data = try! FirebaseEncoder().encode(user)
         ref.child("users").child(googleUser.userID!).setValue(data)
     }

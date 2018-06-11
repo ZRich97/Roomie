@@ -39,6 +39,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     
     var googleUser: GIDGoogleUser!
     var roomieUser: RoomieUser!
@@ -101,7 +102,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func updateRoommateView()
     {
-        print(roomieUser.houseID)
         ref.child("households").child(roomieUser.houseID).child("userList").observeSingleEvent(of: .value, with: { snapshot in
             for child in snapshot.children {
                 let snap = child as! DataSnapshot

@@ -30,7 +30,7 @@ class ListTableViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        fetchEvents()
+        loadUserData()
     }
     
     func loadUserData()
@@ -39,6 +39,7 @@ class ListTableViewController: UITableViewController {
             guard let value = snapshot.value else { return }
             do {
                 self.roomieUser = try FirebaseDecoder().decode(RoomieUser.self, from: value)
+                self.fetchEvents()
             } catch let error {
                 print(error)
             }
@@ -52,7 +53,6 @@ class ListTableViewController: UITableViewController {
             guard let value = snapshot.value else { return }
             do {
                 var house = try FirebaseDecoder().decode(RoomieHousehold.self, from: value)
-                print(house.houseID)
                 if house.eventList == nil
                 {
                     house.eventList = [RoomieEvent]()
@@ -61,14 +61,13 @@ class ListTableViewController: UITableViewController {
                 {
                     for event in house.eventList {
                         self.myEvents.append(event)
+                        self.tableView.reloadData()
                     }
                 }
-                self.tableView.reloadData()
             } catch let error {
                 print(error)
             }
         })
-        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -81,6 +80,11 @@ class ListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
+
+        if indexPath.row >= myEvents.count
+        {
+            return cell
+        }
         let thisEvent = myEvents[indexPath.row]
         cell.textLabel?.text = thisEvent.description!
         cell.detailTextLabel?.text = thisEvent.date!

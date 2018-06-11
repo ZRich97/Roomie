@@ -15,17 +15,40 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textField: UITextField!
     
     @IBAction func addTask(_ sender: Any) {
+        addTaskToDatabase(date: Date(), description: textField.text!)
+    }
+    
+    func addTaskToDatabase(date: Date, description: String)
+    {
+        ref.child("users").child("100435097124622590593").observeSingleEvent(of: .value, with: { snapshot in
+            guard let value = snapshot.value else { return }
+            do {
+                var house = try FirebaseDecoder().decode(RoomieHousehold.self, from: value)
+                if house.eventList == nil
+                {
+                    house.eventList = [RoomieEvent]()
+                }
+                house.eventList.append(RoomieEvent(date: self.formatter.string(from: date), description: description))
+                let data = try! FirebaseEncoder().encode(house)
+                self.ref.child("households").child(self.roomieUser.houseID).setValue(data)
+            } catch let error {
+                print(error)
+            }
+        })
     }
     
     var googleUser: GIDGoogleUser!
     var roomieUser: RoomieUser!
     var ref: DatabaseReference!
+    let formatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        formatter.dateFormat = "MMMM dd yyyy"
+
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
             googleUser = GIDSignIn.sharedInstance().currentUser
         }
@@ -77,6 +100,10 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if roomieUser.myTasks == nil
+        {
+            roomieUser.myTasks = [RoomieEvent]()
+        }
         return roomieUser.myTasks.count
     }
     

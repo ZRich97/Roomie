@@ -628,6 +628,7 @@
                     <connections>
                         <outlet property="profilePic" destination="Wzf-24-AlH" id="rP9-Dw-KNp"/>
                         <outlet property="tableView" destination="yyk-rb-V9o" id="GgL-fr-KTj"/>
+                        <outlet property="textField" destination="VQe-zZ-bUX" id="vX8-Iu-bNn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOH-Vq-ghy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -758,7 +759,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.078431372549019607" green="0.14117647058823529" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.078431372549019607" green="0.14901960784313725" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>

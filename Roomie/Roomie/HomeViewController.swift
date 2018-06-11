@@ -64,6 +64,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             do {
                 self.roomieUser = try FirebaseDecoder().decode(RoomieUser.self, from: value)
                 self.updateUserView()
+                if self.roomieUser.myTasks == nil
+                {
+                    self.roomieUser.myTasks = [RoomieEvent]()
+                }
                 self.myTasks = self.roomieUser.myTasks
                 self.tableView.reloadData()
             } catch let error {
@@ -111,6 +115,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 print(error)
             }
         })
+        
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

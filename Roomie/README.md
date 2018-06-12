@@ -1,12 +1,31 @@
+<p align="center">
+<img src="https://github.com/ZRich97/Roomie/img/icon.png?raw=true" alt="Roomie Icon"/>
+</p>
+
 # Roomie
 **github.com/ZRich97/Roomie**
-
 iOS Application for CSC 436 Final Project
 
 # Notes for Final Submission
 
 **Logging In**
-* Upon install
+* Upon install, you will be presented with a Google login button. To log into my pre-made household, you may use the testing credentials below: 
+Email: zacktest97@gmail.com
+Password: algorithm
+
+* Once logged in, you should be presented with this screen immediately. 
+<p align="center">
+<img src="https://github.com/ZRich97/Roomie/img/homescreen.jpeg?raw=true" alt="Roomie Homescreen"/>
+</p>
+
+* From here you can select a roommate to add a task to, add a task to yourself ("test") or go to either the Calendar or Event pages. 
+* To create a new household or make a new user in my pre-existing household you must logout using the button in the top left of the homescreen. 
+* To join the existing household, login with your own Google account and enter the following credentials
+Username: Anything except rgolmass, zdrichar, or tester. The app will not allow you to create an account with a pre-existing username
+House ID: calpoly
+House Password: password
+
+* To create a new household, enter your own custom values for the above fields. 
 
 **APIs**
 * Google Sign In - Allow for Google User Authentication

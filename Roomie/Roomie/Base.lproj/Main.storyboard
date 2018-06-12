@@ -535,7 +535,7 @@
                                     <constraint firstAttribute="height" constant="100" id="yze-zN-Zzx"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yyk-rb-V9o">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yyk-rb-V9o">
                                 <rect key="frame" x="0.0" y="335" width="375" height="283"/>
                                 <color key="backgroundColor" red="0.25490196078431371" green="0.4823529411764706" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -626,6 +626,7 @@
                         <viewLayoutGuide key="safeArea" id="MsS-KW-cbp"/>
                     </view>
                     <connections>
+                        <outlet property="nameLabel" destination="YVf-7k-KTq" id="soj-g2-E4a"/>
                         <outlet property="profilePic" destination="Wzf-24-AlH" id="rP9-Dw-KNp"/>
                         <outlet property="tableView" destination="yyk-rb-V9o" id="GgL-fr-KTj"/>
                         <outlet property="textField" destination="VQe-zZ-bUX" id="vX8-Iu-bNn"/>

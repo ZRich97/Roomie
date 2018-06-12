@@ -16,6 +16,7 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var nameLabel: UILabel!
     
     @IBAction func addTask(_ sender: Any) {
         addTaskToDatabase(date: Date(), description: textField.text!)
@@ -36,6 +37,7 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
                 let data = try! FirebaseEncoder().encode(user)
                 self.ref.child("users").child(self.roomieUser.userID).setValue(data)
                 self.tableView.reloadData()
+                self.textField.text = ""
             } catch let error {
                 print(error)
             }
@@ -76,28 +78,11 @@ class RoommateViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
         tableView.reloadData()
+        nameLabel.text = "\(roomieUser.userName!)'s Tasks"
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete  {
-            roomieUser.myTasks.remove(at: indexPath.row)
-            let data = try! FirebaseEncoder().encode(roomieUser)
-            self.ref.child("users").child(googleUser.userID).setValue(data)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
-        }
-        else if editingStyle == .insert
-        {
-            print("inserting...")
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

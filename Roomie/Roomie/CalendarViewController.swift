@@ -198,6 +198,7 @@ class CalendarViewController: UIViewController {
                 house.eventList.append(RoomieEvent(date: self.dateFormatter.string(from: date), description: description))
                 let data = try! FirebaseEncoder().encode(house)
                 self.ref.child("households").child(self.roomieUser.houseID).setValue(data)
+                self.eventText.text = ""
             } catch let error {
                 print(error)
             }

@@ -5,6 +5,9 @@ iOS Application for CSC 436 Final Project
 
 # Notes for Final Submission
 
+**Logging In**
+* Upon install
+
 **APIs**
 * Google Sign In - Allow for Google User Authentication
 * JTAppleCalendar - Easily customized calendar interface
@@ -23,4 +26,4 @@ iOS Application for CSC 436 Final Project
 * Assigning events to a range of dates. This is possible using JTAppleCalendar, but not currently supported. 
 
 **Misc**
-* As stated by another student in class (I meant to mention this in my presentation as well), the Google Calendair API is only available in Objective-C and I elected to use EventKit over Google Calendar for this reason. 
+* As stated by another student in class (I meant to mention this in my presentation as well), the Google Calendair API is only available in Objective-C and I elected to use EventKit over Google Calendar for this reason. EventKit will add the new event to the user's default calendar, which in a simulator should always be the default Apple Calendar. 

@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/ZRich97/Roomie/img/icon.png?raw=true" alt="Roomie Icon"/>
+<img src="https://github.com/ZRich97/Roomie/Roomie/img/icon.png?raw=true" alt="Roomie Icon"/>
 </p>
 
 # Roomie
@@ -15,7 +15,7 @@ Password: algorithm
 
 * Once logged in, you should be presented with this screen immediately. 
 <p align="center">
-<img src="https://github.com/ZRich97/Roomie/img/homescreen.jpeg?raw=true" alt="Roomie Homescreen"/>
+<img src="https://github.com/ZRich97/Roomie/Roomie/img/homescreen.jpeg?raw=true" alt="Roomie Homescreen"/>
 </p>
 
 * From here you can select a roommate to add a task to, add a task to yourself ("test") or go to either the Calendar or Event pages. 

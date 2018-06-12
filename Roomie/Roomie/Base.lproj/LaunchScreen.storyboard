@@ -18,16 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="j41-MV-4lX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-nQ-Ktf">
+                                <rect key="frame" x="62.5" y="208.5" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="FJX-NE-pvm"/>
+                                    <constraint firstAttribute="height" constant="250" id="mNB-PW-vwq"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.37254901960784315" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="j41-MV-4lX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1ju-hP-G0j"/>
-                            <constraint firstItem="j41-MV-4lX" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="TFo-T4-Uer"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="j41-MV-4lX" secondAttribute="top" constant="20" id="gBu-JE-qdI"/>
-                            <constraint firstItem="j41-MV-4lX" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="htJ-2d-VgU"/>
+                            <constraint firstItem="Yos-nQ-Ktf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Gqh-A4-wAU"/>
+                            <constraint firstItem="Yos-nQ-Ktf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="O7H-lD-EPE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreen.png" width="750" height="1334"/>
+        <image name="icon.png" width="512" height="512"/>
     </resources>
 </document>

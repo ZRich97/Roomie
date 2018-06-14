@@ -1,1 +1,4 @@
-language: swift 
+language: swift
+xcode_project: Roomie/Roomie.xcodeproj # path to your xcodeproj folder
+xcode_scheme: Roomie/RoomieTests
+podfile: Roomie/Podfile

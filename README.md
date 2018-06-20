@@ -10,11 +10,7 @@ iOS Application for CSC 436 Final Project
 # Notes for Final Submission
 
 **Logging In**
-* Upon install, you will be presented with a Google login button. To log into my pre-made household, you may use the testing credentials below: 
-
-Email: zacktest97@gmail.com
-
-Password: algorithm
+* Upon install, you will be presented with a Google login button.
 
 * Once logged in, you should be presented with this screen immediately. 
 <p align="center">
@@ -50,11 +46,3 @@ House Password: password
 
 **Bugs**
 * Occasionally the Google login will consider a user as "new" when they already have a Google-authorized account. This causes the user to be trapped in account creation. I have not been able to reliably reproduce this bug, as it will occur seemingly randomly when launching application after multiple successful logins. 
-
-**Firebase Data**
-<p align="center">
-<img src="https://raw.githubusercontent.com/ZRich97/Roomie/master/Roomie/img/Firebase.png?raw=true" alt="Roomie Firebase Structure"/>
-</p>
-
-
-
